@@ -1,0 +1,121 @@
+Analysis of sampling 1brc (pid 15868) every 1 millisecond
+Process:         1brc [15868]
+Path:            /Users/USER/Desktop/*/1brc
+Load Address:    0x102f60000
+Identifier:      1brc
+Version:         ???
+Code Type:       ARM64
+Parent Process:  bash [15845]
+Target Type:     live task
+
+Date/Time:       2026-02-26 13:28:09.484 -0500
+Launch Time:     2026-02-26 13:28:09.427 -0500
+OS Version:      macOS 26.3 (25D125)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         2162K
+Physical footprint (peak):  2162K
+Idle exit:                  untracked
+----
+
+Call graph:
+    125 Thread_1675346: Main Thread
+    + 104 _dyld_start  (in dyld) + 0  [0x1033809c0]
+    + 14 start  (in dyld) + 6060  [0x1033848f0]
+    + ! 14 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 1660  [0x1033cc498]
+    + !   14 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 264  [0x1033ccc6c]
+    + !     14 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1033b5a30]
+    + !       14 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 220  [0x1033b56a4]
+    + !         14 mach_msg_overwrite  (in dyld) + 244  [0x103404b64]
+    + !           14 mach_msg2_internal  (in dyld) + 76  [0x1034049b8]
+    + !             14 mach_msg2_trap  (in dyld) + 8  [0x10337d72c]
+    + 5 start  (in dyld) + 7104  [0x18b75dd04]
+    + ! 4 dyld4::prepare(dyld4::APIs&, mach_o::Header const*)  (in dyld) + 2996  [0x18b75f0e4]
+    + ! : 4 dyld4::RuntimeState::notifyDebuggerLoad(std::span<dyld4::Loader const*, 18446744073709551615ul> const&)  (in dyld) + 432  [0x18b76e184]
+    + ! :   4 dyld4::ExternallyViewableState::addImages(lsl::Allocator&, lsl::Allocator&, std::span<dyld4::ExternallyViewableState::ImageInfo, 18446744073709551615ul> const&)  (in dyld) + 544  [0x18b7a607c]
+    + ! :     4 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 264  [0x18b7a5c6c]
+    + ! :       4 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x18b78ea30]
+    + ! :         4 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 220  [0x18b78e6a4]
+    + ! :           4 mach_msg_overwrite  (in dyld) + 244  [0x18b7ddb64]
+    + ! :             4 mach_msg2_internal  (in dyld) + 76  [0x18b7dd9b8]
+    + ! :               4 mach_msg2_trap  (in dyld) + 8  [0x18b75672c]
+    + ! 1 dyld4::prepare(dyld4::APIs&, mach_o::Header const*)  (in dyld) + 1764  [0x18b75ec14]
+    + !   1 dyld4::Loader::adjustFunctionVariantsInDyldCache(dyld4::RuntimeState&)  (in dyld) + 216  [0x18b77dc74]
+    + !     1 <deduplicated_symbol>  (in dyld) + 56  [0x18b76f584]
+    + !       1 dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 124  [0x18b763c84]
+    + !         1 DyldSharedCache::forEachCache(void (DyldSharedCache const*, bool&) block_pointer) const  (in dyld) + 168  [0x18b7a8c38]
+    + !           1 invocation function for block in dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 124  [0x18b764330]
+    + !             1 DyldSharedCache::forEachRegion(void (void const*, unsigned long long, unsigned long long, unsigned int, unsigned int, unsigned long long, unsigned long long, bool&) block_pointer) const  (in dyld) + 284  [0x18b7a8b78]
+    + !               1 invocation function for block in dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging const&, dyld4::SyscallDelegate const&, bool) const  (in dyld) + 128  [0x18b7643bc]
+    + !                 1 vm_protect  (in dyld) + 52  [0x18b75a3c0]
+    + !                   1 _kernelrpc_mach_vm_protect_trap  (in dyld) + 8  [0x18b7565b8]
+    + 1 start  (in dyld) + 4752  [0x1033843d4]
+    + ! 1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 1660  [0x1033cc498]
+    + !   1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 264  [0x1033ccc6c]
+    + !     1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x1033b5a30]
+    + !       1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 220  [0x1033b56a4]
+    + !         1 mach_msg_overwrite  (in dyld) + 244  [0x103404b64]
+    + !           1 mach_msg2_internal  (in dyld) + 76  [0x1034049b8]
+    + !             1 mach_msg2_trap  (in dyld) + 8  [0x10337d72c]
+    + 1 start  (in dyld) + 4076  [0x18b75d130]
+    +   1 dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&, unsigned long long, char const*, unsigned long long, char const*, DyldSharedCache const*)  (in dyld) + 1660  [0x18b7a5498]
+    +     1 dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode, unsigned int, dyld_image_info const*)  (in dyld) + 264  [0x18b7a5c6c]
+    +       1 dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned int)  (in dyld) + 48  [0x18b78ea30]
+    +         1 dyld4::RemoteNotificationResponder::sendMessage(int, unsigned int, mach_msg_header_t*)  (in dyld) + 220  [0x18b78e6a4]
+    +           1 mach_msg_overwrite  (in dyld) + 244  [0x18b7ddb64]
+    +             1 mach_msg2_internal  (in dyld) + 76  [0x18b7dd9b8]
+    +               1 mach_msg2_trap  (in dyld) + 8  [0x18b75672c]
+    8266 Thread_1675346   DispatchQueue_1: com.apple.main-thread  (serial)
+      8266 start  (in dyld) + 7184  [0x18b75dd54]
+        8266 main  (in 1brc) + 116  [0x102f6101c]  1brc.cpp:294
+          6202 create_weather_station_map()  (in 1brc) + 332,312,...  [0x102f60a00,0x102f609ec,...]  1brc.cpp:233
+          1430 create_weather_station_map()  (in 1brc) + 500  [0x102f60aa8]  1brc.cpp:238
+          ! 1157 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 60  [0x102f60790]  1brc.cpp:178
+          ! : 455 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 240  [0x102f63268]  __hash_table:1781
+          ! : | 382 _platform_memcmp  (in libsystem_platform.dylib) + 260,272,...  [0x18bb2eff4,0x18bb2f000,...]
+          ! : | 73 DYLD-STUB$$memcmp  (in 1brc) + 4,8  [0x102f700bc,0x102f700c0]
+          ! : 249 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 52  [0x102f631ac]  __hash_table:1772
+          ! : | 104 std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc) + 16,84,...  [0x102f632c4,0x102f63308,...]  hash.h:89
+          ! : | 87 std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc) + 0,4  [0x102f632b4,0x102f632b8]  hash.h:87
+          ! : | 49 std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc) + 444  [0x102f63470]  hash.h:0
+          ! : | 7 std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc) + 8  [0x102f632bc]  hash.h:88
+          ! : | 2 std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc) + 356,372  [0x102f63418,0x102f63428]  hash.h:91
+          ! : 140 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 240,192,...  [0x102f63268,0x102f63238,...]  __hash_table:1781
+          ! : 78 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 76,100,...  [0x102f631c4,0x102f631dc,...]  __hash_table:1775
+          ! : 73 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 248,172  [0x102f63270,0x102f63224]  __hash_table:1779
+          ! : 59 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 20,8,...  [0x102f6318c,0x102f63180,...]  __hash_table:1771
+          ! : 29 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 132,140  [0x102f631fc,0x102f63204]  __hash_table:0
+          ! : 28 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 36,40  [0x102f6319c,0x102f631a0]  __hash_table:1772
+          ! : 26 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 124  [0x102f631f4]  __hash_table:1776
+          ! : 16 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 52  [0x102f631ac]  __hash_table:1773
+          ! : 2 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 156  [0x102f63214]  __hash_table:1778
+          ! : 2 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 280  [0x102f63290]  __hash_table:1787
+          ! 133 std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc) + 300,296  [0x102f632a4,0x102f632a0]  __hash_table:1787
+          ! 52 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 20,4,...  [0x102f60768,0x102f60758,...]  1brc.cpp:175
+          ! 48 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 236  [0x102f60840]  1brc.cpp:186
+          ! 36 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 252  [0x102f60850]  1brc.cpp:191
+          ! 3 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 44  [0x102f60780]  1brc.cpp:176
+          ! 1 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 292  [0x102f60878]  1brc.cpp:198
+          443 create_weather_station_map()  (in 1brc) + 376,400,...  [0x102f60a2c,0x102f60a44,...]  1brc.cpp:236
+          146 aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc) + 308,312,...  [0x102f60888,0x102f6088c,...]  1brc.cpp:198
+          44 create_weather_station_map()  (in 1brc) + 284  [0x102f609d0]  1brc.cpp:231
+          1 create_weather_station_map()  (in 1brc) + 68  [0x102f608f8]  1brc.cpp:205
+            1 mmap_file()  (in 1brc) + 120  [0x102f60600]  1brc.cpp:104
+              1 mmap  (in libsystem_kernel.dylib) + 80  [0x18bae59a8]
+                1 __mmap  (in libsystem_kernel.dylib) + 8  [0x18bae5a04]
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        create_weather_station_map()  (in 1brc)        6689
+        std::__hash_table<std::__hash_value_type<std::basic_string<char>, WeatherStation>>::find<std::basic_string_view<char>>(std::basic_string_view<char> const&)  (in 1brc)        586
+        _platform_memcmp  (in libsystem_platform.dylib)        382
+        aggregate(char const*, unsigned long, char const*, double, std::unordered_map<std::basic_string<char>, WeatherStation, KeyHash>&)  (in 1brc)        286
+        std::__murmur2_or_cityhash<unsigned long, 64ul>::operator()[abi:ne200100](void const*, unsigned long) const  (in 1brc)        249
+        _dyld_start  (in dyld)        104
+        DYLD-STUB$$memcmp  (in 1brc)        73
+        mach_msg2_trap  (in dyld)        20
+
+Binary images description not available
+

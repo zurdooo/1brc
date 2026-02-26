@@ -47,3 +47,9 @@ out/
 /*.out
 out_expected.txt
 /*-timing.json
+
+cpp/1brc.dSYM
+cpp/1brc.trace
+cpp/out.trace
+
+/build
