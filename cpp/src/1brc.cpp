@@ -16,23 +16,28 @@ aggregate, and retrieve the results per station.
 
 ! Test Input std::string name;double value
 access value by name if not present, append to total, add 1 to struct count
+
+TODO LIST
+- Do i need such a complicated hash?
+- Only 100000 unique stations how can we optimize from here
+- Fix the parsing function use the simd instructions
+- Use simple/small objects in datastructures only use what we need
+- Think about the memory pattern optimize a single query then optimize the loop
 */
 
 #include <print>
-#include <unordered_map>
+#include <boost/unordered/unordered_flat_map.hpp>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <string_view>
 #include <charconv>
-#include <limits>
 #include <cstdlib>
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include <chrono>
-
 
 /// Hash to use with transparent key lookup in unordered_map, allows for efficient lookup using stringview and only allocate key once
 struct KeyHash
@@ -53,14 +58,14 @@ struct KeyHash
 /// @brief Represents the weather station found in "measurements.txt"
 struct WeatherStation
 {
-    double min = std::numeric_limits<double>::infinity();
-    double max = -std::numeric_limits<double>::infinity();
+    int_fast32_t min = 999;
+    int_fast32_t max = -999;
     double total = 0.0;
     int count = 0; // Total instances of measurements we read
 };
 
-// Alias for the weather station map
-using StationMap = std::unordered_map<std::string, WeatherStation, KeyHash, std::equal_to<>>;
+// Alias for the weather station map — std::string keys so they own their data (safe after munmap)
+using StationMap = boost::unordered_flat_map<std::string, WeatherStation, KeyHash, std::equal_to<>>;
 
 /// @brief The return type for mmap, so we can cleanup memory after getting the data
 struct MMapFile
@@ -118,6 +123,7 @@ MMapFile mmap_file()
 }
 
 // TODO: we can search after the ; by looking for a . as we know how many chars are left at this point
+/// @brief Takes in the start of line and the end, modifies the semicolon and new line pointers
 void find_sep_and_new_line(const char *line_start, size_t remaining, const char *&sc, const char *&nl)
 {
     const char *p = line_start;
@@ -125,12 +131,14 @@ void find_sep_and_new_line(const char *line_start, size_t remaining, const char 
     sc = nullptr;
     nl = nullptr;
 
+    // Every word is at least two chars long
     p += 2; // ?
     while (p < end)
     {
         if (*p == ';')
         {
             sc = p;
+            // After semicolon theres always at least three chars
             p += 3; // ?
             continue;
         }
@@ -143,9 +151,9 @@ void find_sep_and_new_line(const char *line_start, size_t remaining, const char 
     }
 }
 
-double parse_value(const char *sc)
+// sc : Type Pointer to a line in memory
+int_fast32_t parse_value(const char *sc)
 {
-
     const char *p = sc + 1; // skip semicolon
 
     // Check for neg
@@ -167,7 +175,7 @@ double parse_value(const char *sc)
     // Exactly one fractional digit
     value = value * 10 + (*p - '0');
 
-    double result = value * 0.1;
+    int_fast32_t result = value;
     return neg ? -result : result;
 }
 
@@ -179,7 +187,7 @@ void aggregate(const char *data, size_t pos, const char *sc, double value, Stati
     auto it = weather_stations.find(name_view);
     if (it == weather_stations.end())
     {
-        it = weather_stations.emplace(std::string(name_view), WeatherStation{}).first;
+        it = weather_stations.emplace(name_view, WeatherStation{}).first;
     }
 
     auto &ws = it->second;
@@ -198,6 +206,9 @@ void aggregate(const char *data, size_t pos, const char *sc, double value, Stati
     ws.count++;
 }
 
+// TODO: Fix the inputs to the other functions
+/// @brief function to parse the file and create the hashmap with all the values,
+/// @return Returns the hashmap
 StationMap create_weather_station_map()
 {
     auto start = std::chrono::high_resolution_clock::now();
@@ -229,7 +240,7 @@ StationMap create_weather_station_map()
     const int MAX_ROWS = 20000000;
 
     // TEMP: Removed limit
-    while (pos < size)
+    while (pos < size && MAX_ROWS)
     {
         find_sep_and_new_line(data + pos, size - pos, sc, nl);
 
@@ -257,7 +268,7 @@ StationMap create_weather_station_map()
 void output_stations(const StationMap &map)
 {
     /// Collect and sort keys
-    std::vector<std::string> keys;
+    std::vector<std::string_view> keys;
     keys.reserve(map.size());
     for (auto &[key, _] : map)
         keys.push_back(key);
@@ -273,9 +284,9 @@ void output_stations(const StationMap &map)
         // Print to 1 decimal place
         std::print("{}={:.1f}/{:.1f}/{:.1f}",
                    keys[i],
-                   ws.min,
+                   ws.min / 10.0,
                    mean,
-                   ws.max);
+                   ws.max / 10.0);
 
         // Print comma separator if not the last element
         if (i + 1 < keys.size())

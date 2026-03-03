@@ -2,7 +2,8 @@
 
 # -------- CONFIG --------
 APP_NAME="1brc"
-CPP_DIR="$(pwd)"
+CPP_DIR="$(cd "$(dirname "$0")" && pwd)"
+BUILD_DIR="$CPP_DIR/build"
 FLAMEGRAPH_DIR="$CPP_DIR/../FlameGraph"
 OUTPUT_DIR="$CPP_DIR"
 SAMPLE_FILE="$CPP_DIR/sample.output"
@@ -13,12 +14,20 @@ cd "$FLAMEGRAPH_DIR" || exit 1
 sample "$APP_NAME" -wait -f "$SAMPLE_FILE" &
 SAMPLE_PID=$!
 
-# -------- STEP 2: Compile program --------
+# -------- STEP 2: Build with CMake + Conan --------
 cd "$CPP_DIR" || exit 1
-g++ -std=c++23 -g -O2 1brc.cpp -o "$APP_NAME"
-``
+
+# Install Conan dependencies and generate CMakePresets toolchain
+# cmake_layout puts generators in build/Release/generators/ automatically;
+# do NOT pass --output-folder here or it will double-nest.
+conan install . --build=missing -s build_type=Release
+
+# Configure and build using the preset Conan generated (CMakeUserPresets.json)
+cmake --preset conan-release
+cmake --build --preset conan-release --parallel
+
 # -------- STEP 3: Run program --------
-./"$APP_NAME"
+"$BUILD_DIR/Release/$APP_NAME"
 
 # -------- STEP 4: Wait for sampling to finish --------
 wait $SAMPLE_PID
