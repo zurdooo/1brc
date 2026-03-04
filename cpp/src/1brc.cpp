@@ -39,6 +39,7 @@ TODO LIST
 #include <unistd.h>
 #include <chrono>
 
+// TODO: Fix the hashing and storing of keys
 /// Hash to use with transparent key lookup in unordered_map, allows for efficient lookup using stringview and only allocate key once
 struct KeyHash
 {
@@ -79,6 +80,9 @@ struct MMapFile
 /// @return Pointer to the mapped data
 MMapFile mmap_file()
 {
+    auto t0 = std::chrono::high_resolution_clock::now();
+    std::println("Starting mmap");
+
     // Parse file into map
     const char *path = "../measurements.txt";
 
@@ -89,6 +93,9 @@ MMapFile mmap_file()
         std::perror("open");
         return {};
     }
+    auto t1 = std::chrono::high_resolution_clock::now();
+    std::println("open() time: {:.6f} seconds",
+                 std::chrono::duration<double>(t1 - t0).count());
 
     // Get file size
     struct stat st{};
@@ -98,6 +105,9 @@ MMapFile mmap_file()
         ::close(fd);
         return {};
     }
+    auto t2 = std::chrono::high_resolution_clock::now();
+    std::println("fstat() time: {:.6f} seconds",
+                 std::chrono::duration<double>(t2 - t1).count());
 
     const size_t size = static_cast<size_t>(st.st_size);
     if (size == 0)
@@ -114,9 +124,16 @@ MMapFile mmap_file()
         ::close(fd);
         return {};
     }
+    auto t3 = std::chrono::high_resolution_clock::now();
+    std::println("mmap() time: {:.6f} seconds",
+                 std::chrono::duration<double>(t3 - t2).count());
 
     // ! Advise the kernel about the expected access pattern
     ::madvise(ptr, size, MADV_SEQUENTIAL);
+    auto t4 = std::chrono::high_resolution_clock::now();
+    std::println("madvise() time: {:.6f} seconds",
+                 std::chrono::duration<double>(t4 - t3).count());
+    std::println("Ended mmap");
 
     // Return mmap struct
     return {fd, size, static_cast<const char *>(ptr)};
@@ -127,7 +144,6 @@ MMapFile mmap_file()
 void find_sep_and_new_line(const char *line_start, size_t remaining, const char *&sc, const char *&nl)
 {
     const char *p = line_start;
-    const char *end = line_start + remaining;
     sc = nullptr;
     nl = nullptr;
 
@@ -179,7 +195,7 @@ int_fast32_t parse_value(const char *sc)
     return neg ? -result : result;
 }
 
-// TODO: Change to another hashmap instead of naive cpp impl
+// TODO: Fix the inefficient std::string allocation
 void aggregate(const char *data, size_t pos, const char *sc, double value, StationMap &weather_stations)
 {
     std::string_view name_view{data + pos, static_cast<size_t>(sc - (data + pos))};
@@ -187,7 +203,7 @@ void aggregate(const char *data, size_t pos, const char *sc, double value, Stati
     auto it = weather_stations.find(name_view);
     if (it == weather_stations.end())
     {
-        it = weather_stations.emplace(name_view, WeatherStation{}).first;
+        it = weather_stations.emplace(std::string(name_view), WeatherStation{}).first;
     }
 
     auto &ws = it->second;
@@ -211,6 +227,7 @@ void aggregate(const char *data, size_t pos, const char *sc, double value, Stati
 /// @return Returns the hashmap
 StationMap create_weather_station_map()
 {
+    std::println("Starting mmap");
     auto start = std::chrono::high_resolution_clock::now();
 
     // Read file into memory
@@ -219,6 +236,9 @@ StationMap create_weather_station_map()
     {
         return {};
     }
+
+    std::println("Ended mmap");
+
     const char *data = mapped.data;
     const size_t size = mapped.size;
 
@@ -240,7 +260,7 @@ StationMap create_weather_station_map()
     const int MAX_ROWS = 20000000;
 
     // TEMP: Removed limit
-    while (pos < size && MAX_ROWS)
+    while (pos < size && row_count < MAX_ROWS)
     {
         find_sep_and_new_line(data + pos, size - pos, sc, nl);
 
@@ -264,11 +284,12 @@ StationMap create_weather_station_map()
     return weather_stations;
 }
 
+// TODO: use iterator instead of basic loop
 /// This function should take in the hashmap of all stations and output in the desired format to stdout
 void output_stations(const StationMap &map)
 {
     /// Collect and sort keys
-    std::vector<std::string_view> keys;
+    std::vector<std::string> keys;
     keys.reserve(map.size());
     for (auto &[key, _] : map)
         keys.push_back(key);
@@ -278,6 +299,7 @@ void output_stations(const StationMap &map)
     std::print("{{");
     for (size_t i = 0; i < keys.size(); ++i)
     {
+        // TODO: Fix tihis?
         auto &ws = map.at(keys[i]);
         double mean = ws.total / ws.count;
 
