@@ -431,832 +431,780 @@
 <text id="matched" x="1090.00" y="453" > </text>
 <g id="frames">
 <g >
-<title>dyld`dyld4::Loader::findAndRunAllInitializers(dyld4::RuntimeState&amp;).const (1 samples, 0.02%)</title><rect x="1188.4" y="325" width="0.3" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="1191.45" y="335.5" ></text>
+<title>1brc`decltype(type_policy::extract(fp)).boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (1 samples, 0.01%)</title><rect x="964.1" y="341" width="0.1" height="15.0" fill="rgb(228,106,25)" rx="2" ry="2" />
+<text  x="967.08" y="351.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::match_occupied().const (1 samples, 0.02%)</title><rect x="13.3" y="197" width="0.3" height="15.0" fill="rgb(238,156,37)" rx="2" ry="2" />
-<text  x="16.33" y="207.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (238 samples, 3.04%)</title><rect x="343.1" y="325" width="35.8" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="346.08" y="335.5" >1br..</text>
 </g>
 <g >
-<title>dyld`mach_msg2_internal (4 samples, 0.08%)</title><rect x="1189.1" y="261" width="0.9" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="1192.11" y="271.5" ></text>
+<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::match(unsigned.long) (1,103 samples, 14.07%)</title><rect x="144.0" y="325" width="166.0" height="15.0" fill="rgb(216,50,12)" rx="2" ry="2" />
+<text  x="146.95" y="335.5" >1brc`boost::unordered..</text>
 </g>
 <g >
-<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (7 samples, 0.13%)</title><rect x="522.8" y="261" width="1.6" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
-<text  x="525.82" y="271.5" ></text>
+<title>1brc`std::__formatter::__format_buffer_fixed[abi:ne200100]&lt;double,.double&gt;(std::__formatter::__float_buffer&lt;double&gt; (1 samples, 0.01%)</title><rect x="1171.0" y="101" width="0.2" height="15.0" fill="rgb(221,77,18)" rx="2" ry="2" />
+<text  x="1174.04" y="111.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="13.3" y="293" width="0.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="16.33" y="303.5" ></text>
+<title>1brc`std::__format::__handle_replacement_field[abi:ne200100]&lt;char.const*, (1 samples, 0.01%)</title><rect x="1171.0" y="229" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1174.04" y="239.5" ></text>
 </g>
 <g >
-<title>Thread_4768287:.Main (96 samples, 1.81%)</title><rect x="1168.7" y="405" width="21.3" height="15.0" fill="rgb(247,194,46)" rx="2" ry="2" />
-<text  x="1171.68" y="415.5" >T..</text>
+<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.01%)</title><rect x="13.0" y="245" width="0.2" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
+<text  x="16.01" y="255.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_format_context&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char&gt;::iterator (1 samples, 0.02%)</title><rect x="1168.5" y="245" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
-<text  x="1171.46" y="255.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::empty_::empty_value&lt;std::equal_to&lt;void&gt;,.1u, (27 samples, 0.51%)</title><rect x="422.0" y="309" width="6.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="424.99" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::mulx64(unsigned.long (16 samples, 0.30%)</title><rect x="526.4" y="277" width="3.5" height="15.0" fill="rgb(226,99,23)" rx="2" ry="2" />
-<text  x="529.37" y="287.5" ></text>
-</g>
-<g >
-<title>dyld`DyldSharedCache::forEachCache(void.(DyldSharedCache (1 samples, 0.02%)</title><rect x="1188.7" y="117" width="0.2" height="15.0" fill="rgb(221,75,18)" rx="2" ry="2" />
-<text  x="1191.67" y="127.5" ></text>
-</g>
-<g >
-<title>1brc`boost::empty_::empty_value&lt;std::equal_to&lt;void&gt;,.1u, (13 samples, 0.24%)</title><rect x="431.8" y="309" width="2.8" height="15.0" fill="rgb(218,59,14)" rx="2" ry="2" />
-<text  x="434.76" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`std::print[abi:ne200100]&lt;std::basic_string&lt;char&gt;&amp;,.double, (1 samples, 0.02%)</title><rect x="1168.5" y="325" width="0.2" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="1171.46" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (25 samples, 0.47%)</title><rect x="557.2" y="309" width="5.6" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="560.25" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (6 samples, 0.11%)</title><rect x="394.7" y="277" width="1.3" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="397.67" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`std::basic_string_view&lt;char&gt;::compare(std::basic_string_view&lt;char&gt;).const (396 samples, 7.45%)</title><rect x="851.1" y="293" width="87.9" height="15.0" fill="rgb(254,225,53)" rx="2" ry="2" />
-<text  x="854.08" y="303.5" >1brc`std::..</text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$memcmp (15 samples, 0.28%)</title><rect x="894.4" y="261" width="3.3" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="897.39" y="271.5" ></text>
-</g>
-<g >
-<title>1brc`??? (47 samples, 0.88%)</title><rect x="105.5" y="325" width="10.4" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="108.50" y="335.5" ></text>
-</g>
-<g >
-<title>dyld`mach_o::Header::forEachSection(void.(mach_o::Header::SectionInfo (1 samples, 0.02%)</title><rect x="1188.4" y="293" width="0.3" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="1191.45" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`??? (102 samples, 1.92%)</title><rect x="818.9" y="293" width="22.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="821.88" y="303.5" >1..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (620 samples, 11.67%)</title><rect x="411.3" y="325" width="137.7" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="414.33" y="335.5" >1brc`boost::unord..</text>
-</g>
-<g >
-<title>1brc`std::operator==[abi:ne200100]&lt;char,.1&gt;(std::basic_string_view&lt;char&gt;, (604 samples, 11.37%)</title><rect x="804.9" y="309" width="134.1" height="15.0" fill="rgb(243,177,42)" rx="2" ry="2" />
-<text  x="807.88" y="319.5" >1brc`std::operat..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (62 samples, 1.17%)</title><rect x="549.0" y="325" width="13.8" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="552.03" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (119 samples, 2.24%)</title><rect x="580.3" y="309" width="26.5" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="583.34" y="319.5" >1..</text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (21 samples, 0.40%)</title><rect x="329.2" y="309" width="4.6" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
-<text  x="332.15" y="319.5" ></text>
-</g>
-<g >
-<title>dyld`DyldSharedCache::forEachPatchableUseOfExport(unsigned.int, (1 samples, 0.02%)</title><rect x="1188.7" y="181" width="0.2" height="15.0" fill="rgb(254,228,54)" rx="2" ry="2" />
-<text  x="1191.67" y="191.5" ></text>
-</g>
-<g >
-<title>dyld`mach_msg_overwrite (15 samples, 0.28%)</title><rect x="1185.1" y="309" width="3.3" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
-<text  x="1188.11" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`KeyHash::operator()(std::basic_string_view&lt;char&gt;).const (364 samples, 6.85%)</title><rect x="443.5" y="293" width="80.9" height="15.0" fill="rgb(239,156,37)" rx="2" ry="2" />
-<text  x="446.53" y="303.5" >1brc`KeyH..</text>
-</g>
-<g >
-<title>dyld`dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned.int) (4 samples, 0.08%)</title><rect x="1189.1" y="309" width="0.9" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="1192.11" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (24 samples, 0.45%)</title><rect x="400.0" y="309" width="5.3" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
-<text  x="403.00" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="13.3" y="325" width="0.3" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="16.33" y="335.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::RemoteNotificationResponder::sendMessage(int,.unsigned (15 samples, 0.28%)</title><rect x="1185.1" y="325" width="3.3" height="15.0" fill="rgb(220,73,17)" rx="2" ry="2" />
-<text  x="1188.11" y="335.5" ></text>
-</g>
-<g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="213" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="223.5" ></text>
-</g>
-<g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="245" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="255.5" ></text>
-</g>
-<g >
-<title>1brc`std::basic_string_view&lt;char&gt;::basic_string_view[abi:ne200100](std::basic_string_view&lt;char&gt;::__assume_valid,.char (158 samples, 2.97%)</title><rect x="769.6" y="277" width="35.1" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
-<text  x="772.57" y="287.5" >1b..</text>
-</g>
-<g >
-<title>dyld`dyld4::ProcessConfig::DyldCache::makeDataConstWritable(dyld4::ProcessConfig::Logging.const&amp;, (1 samples, 0.02%)</title><rect x="1188.7" y="133" width="0.2" height="15.0" fill="rgb(208,17,4)" rx="2" ry="2" />
-<text  x="1191.67" y="143.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&amp;,.unsigned (15 samples, 0.28%)</title><rect x="1185.1" y="373" width="3.3" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="1188.11" y="383.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned.int) (15 samples, 0.28%)</title><rect x="1185.1" y="341" width="3.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="1188.11" y="351.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (6 samples, 0.11%)</title><rect x="123.5" y="325" width="1.3" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="126.49" y="335.5" ></text>
-</g>
-<g >
-<title>dyld`mach_msg2_internal (15 samples, 0.28%)</title><rect x="1185.1" y="293" width="3.3" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
-<text  x="1188.11" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`const&amp;.boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (31 samples, 0.58%)</title><rect x="939.7" y="309" width="6.9" height="15.0" fill="rgb(250,207,49)" rx="2" ry="2" />
-<text  x="942.70" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`decltype(auto).std::__visit_format_arg[abi:ne200100]&lt;char (1 samples, 0.02%)</title><rect x="1168.5" y="213" width="0.2" height="15.0" fill="rgb(225,95,22)" rx="2" ry="2" />
-<text  x="1171.46" y="223.5" ></text>
-</g>
-<g >
-<title>dyld`_dyld_start (74 samples, 1.39%)</title><rect x="1168.7" y="389" width="16.4" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
-<text  x="1171.68" y="399.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$KeyHash::operator()(std::basic_string_view&lt;char&gt;).const (3 samples, 0.06%)</title><rect x="440.4" y="293" width="0.7" height="15.0" fill="rgb(234,136,32)" rx="2" ry="2" />
-<text  x="443.42" y="303.5" ></text>
-</g>
-<g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.4" y="229" width="0.3" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.45" y="239.5" ></text>
-</g>
-<g >
-<title>1brc`std::invoke_result&lt;char.const*, (1 samples, 0.02%)</title><rect x="1168.5" y="197" width="0.2" height="15.0" fill="rgb(246,188,45)" rx="2" ry="2" />
-<text  x="1171.46" y="207.5" ></text>
-</g>
-<g >
-<title>1brc`aggregate(char.const*, (4,173 samples, 78.54%)</title><rect x="20.2" y="341" width="926.8" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="23.22" y="351.5" >1brc`aggregate(char.const*,</text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::mulx(unsigned.long) (11 samples, 0.21%)</title><rect x="441.1" y="293" width="2.4" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
-<text  x="444.09" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (11 samples, 0.21%)</title><rect x="143.9" y="325" width="2.5" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
-<text  x="146.92" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (6 samples, 0.11%)</title><rect x="388.7" y="277" width="1.3" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
-<text  x="391.67" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (29 samples, 0.55%)</title><rect x="600.3" y="293" width="6.5" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="603.33" y="303.5" ></text>
-</g>
-<g >
-<title>dyld`dyld3::MachOAnalyzer::forEachInitializer(Diagnostics&amp;,.dyld3::MachOAnalyzer::VMAddrConverter (1 samples, 0.02%)</title><rect x="1188.4" y="309" width="0.3" height="15.0" fill="rgb(214,45,10)" rx="2" ry="2" />
-<text  x="1191.45" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`std::print[abi:ne200100]&lt;std::basic_string&lt;char&gt;&amp;,.double, (1 samples, 0.02%)</title><rect x="1168.5" y="341" width="0.2" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
-<text  x="1171.46" y="351.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::RemoteNotificationResponder::sendMessage(int,.unsigned (4 samples, 0.08%)</title><rect x="1189.1" y="293" width="0.9" height="15.0" fill="rgb(220,73,17)" rx="2" ry="2" />
-<text  x="1192.11" y="303.5" ></text>
-</g>
-<g >
-<title>dyld`mach_msg2_trap (4 samples, 0.08%)</title><rect x="1189.1" y="245" width="0.9" height="15.0" fill="rgb(231,121,29)" rx="2" ry="2" />
-<text  x="1192.11" y="255.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::unchecked_countr_zero(int) (33 samples, 0.62%)</title><rect x="146.4" y="325" width="7.3" height="15.0" fill="rgb(249,204,48)" rx="2" ry="2" />
-<text  x="149.37" y="335.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::JustInTimeLoader::handleStrongWeakDefOverrides(dyld4::RuntimeState&amp;,.dyld4::DyldCacheDataConstLazyScopedWriter&amp;) (1 samples, 0.02%)</title><rect x="1188.9" y="357" width="0.2" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
-<text  x="1191.89" y="367.5" ></text>
-</g>
-<g >
-<title>1brc`std::__print::__vprint_unicode[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.02%)</title><rect x="1168.5" y="309" width="0.2" height="15.0" fill="rgb(249,206,49)" rx="2" ry="2" />
-<text  x="1171.46" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_arrays&lt;std::pair&lt;std::basic_string&lt;char&gt;.const, (36 samples, 0.68%)</title><rect x="124.8" y="325" width="8.0" height="15.0" fill="rgb(241,168,40)" rx="2" ry="2" />
-<text  x="127.82" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (24 samples, 0.45%)</title><rect x="338.0" y="293" width="5.4" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
-<text  x="341.04" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`??? (1 samples, 0.02%)</title><rect x="1168.5" y="133" width="0.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="1171.46" y="143.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::operator==(boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (86 samples, 1.62%)</title><rect x="327.4" y="325" width="19.1" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
-<text  x="330.38" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`??? (70 samples, 1.32%)</title><rect x="690.9" y="277" width="15.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="693.95" y="287.5" ></text>
-</g>
-<g >
-<title>dyld`mach_o::Header::forEachLoadCommand(void.(load_command (1 samples, 0.02%)</title><rect x="1188.4" y="277" width="0.3" height="15.0" fill="rgb(237,147,35)" rx="2" ry="2" />
-<text  x="1191.45" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::pow2_size_policy::position(unsigned.long, (17 samples, 0.32%)</title><rect x="541.0" y="293" width="3.8" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
-<text  x="544.03" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::to_pointer&lt;unsigned.char*&gt;(unsigned (21 samples, 0.40%)</title><rect x="390.0" y="277" width="4.7" height="15.0" fill="rgb(243,179,42)" rx="2" ry="2" />
-<text  x="393.01" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`std::basic_string&lt;char&gt;::size[abi:ne200100]().const (110 samples, 2.07%)</title><rect x="706.5" y="293" width="24.4" height="15.0" fill="rgb(215,49,11)" rx="2" ry="2" />
-<text  x="709.50" y="303.5" >1..</text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (10 samples, 0.19%)</title><rect x="553.7" y="309" width="2.2" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
-<text  x="556.69" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`std::__loadword[abi:ne200100]&lt;unsigned.long&gt;(void (8 samples, 0.15%)</title><rect x="507.3" y="213" width="1.8" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="510.27" y="223.5" ></text>
-</g>
-<g >
-<title>1brc`std::__do_string_hash[abi:ne200100]&lt;char.const*&gt;(char (291 samples, 5.48%)</title><rect x="458.2" y="261" width="64.6" height="15.0" fill="rgb(249,203,48)" rx="2" ry="2" />
-<text  x="461.19" y="271.5" >1brc`st..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (53 samples, 1.00%)</title><rect x="384.2" y="293" width="11.8" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="387.23" y="303.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (12 samples, 0.23%)</title><rect x="947.0" y="341" width="2.7" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="950.03" y="351.5" ></text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="13.3" y="277" width="0.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="16.33" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`decltype(std::forward&lt;std::basic_string_view&lt;char&gt;.const&amp;&gt;(fp) (1,495 samples, 28.14%)</title><rect x="607.0" y="325" width="332.0" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
-<text  x="610.00" y="335.5" >1brc`decltype(std::forward&lt;std::basic_string..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (146 samples, 2.75%)</title><rect x="363.6" y="325" width="32.4" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="366.58" y="335.5" >1b..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::detail::foa::table_arrays&lt;std::pair&lt;std::basic_string&lt;char&gt;.const, (69 samples, 1.30%)</title><rect x="396.0" y="325" width="15.3" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
-<text  x="399.00" y="335.5" ></text>
-</g>
-<g >
-<title>1brc`std::char_traits&lt;char&gt;::compare[abi:ne200100](char.const*, (272 samples, 5.12%)</title><rect x="878.6" y="277" width="60.4" height="15.0" fill="rgb(208,17,4)" rx="2" ry="2" />
-<text  x="881.62" y="287.5" >1brc`s..</text>
-</g>
-<g >
-<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (143 samples, 2.69%)</title><rect x="575.2" y="325" width="31.8" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="578.24" y="335.5" >1b..</text>
-</g>
-<g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::simde_mm_movemask_epi8(__simd128_uint8_t) (24 samples, 0.45%)</title><rect x="183.9" y="309" width="5.3" height="15.0" fill="rgb(230,117,28)" rx="2" ry="2" />
-<text  x="186.90" y="319.5" ></text>
-</g>
-<g >
-<title>1brc`??? (87 samples, 1.64%)</title><rect x="859.3" y="277" width="19.3" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="862.30" y="287.5" ></text>
-</g>
-<g >
-<title>1brc`std::__print::__vprint_nonunicode[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.02%)</title><rect x="1168.5" y="277" width="0.2" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
-<text  x="1171.46" y="287.5" ></text>
-</g>
-<g >
-<title>dyld`dyld4::JustInTimeLoader::applyFixups(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.02%)</title><rect x="1188.7" y="357" width="0.2" height="15.0" fill="rgb(224,88,21)" rx="2" ry="2" />
-<text  x="1191.67" y="367.5" ></text>
-</g>
-<g >
-<title>1brc`??? (1 samples, 0.02%)</title><rect x="548.8" y="245" width="0.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="551.81" y="255.5" ></text>
-</g>
-<g >
-<title>1brc`main (5,217 samples, 98.19%)</title><rect x="10.0" y="373" width="1158.7" height="15.0" fill="rgb(248,198,47)" rx="2" ry="2" />
+<title>1brc`main (7,715 samples, 98.41%)</title><rect x="10.0" y="373" width="1161.2" height="15.0" fill="rgb(248,198,47)" rx="2" ry="2" />
 <text  x="13.00" y="383.5" >1brc`main</text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="197" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="207.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (33 samples, 0.42%)</title><rect x="312.1" y="309" width="4.9" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
+<text  x="315.07" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::size[abi:ne200100]().const (1 samples, 0.02%)</title><rect x="804.7" y="309" width="0.2" height="15.0" fill="rgb(215,49,11)" rx="2" ry="2" />
-<text  x="807.66" y="319.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (57 samples, 0.73%)</title><rect x="317.0" y="309" width="8.6" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="320.04" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="69" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="79.5" ></text>
+<title>1brc`std::print[abi:ne200100]&lt;std::basic_string&lt;char&gt;&amp;,.double, (1 samples, 0.01%)</title><rect x="1171.0" y="325" width="0.2" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
+<text  x="1174.04" y="335.5" ></text>
 </g>
 <g >
-<title>libsystem_platform`_platform_memcmp (186 samples, 3.50%)</title><rect x="897.7" y="261" width="41.3" height="15.0" fill="rgb(214,45,10)" rx="2" ry="2" />
-<text  x="900.72" y="271.5" >lib..</text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (12 samples, 0.15%)</title><rect x="571.6" y="309" width="1.8" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
+<text  x="574.55" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$std::basic_string_view&lt;char&gt;::compare(std::basic_string_view&lt;char&gt;).const (43 samples, 0.81%)</title><rect x="841.5" y="293" width="9.6" height="15.0" fill="rgb(249,205,49)" rx="2" ry="2" />
-<text  x="844.53" y="303.5" ></text>
+<title>1brc`decltype(fp0(nullptr,.0, (1 samples, 0.01%)</title><rect x="13.0" y="229" width="0.2" height="15.0" fill="rgb(219,65,15)" rx="2" ry="2" />
+<text  x="16.01" y="239.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="606.8" y="309" width="0.2" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="609.77" y="319.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (7 samples, 0.09%)</title><rect x="141.1" y="325" width="1.0" height="15.0" fill="rgb(246,188,45)" rx="2" ry="2" />
+<text  x="144.09" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`boost::empty_::empty_value&lt;KeyHash,.0u, (8 samples, 0.15%)</title><rect x="544.8" y="293" width="1.8" height="15.0" fill="rgb(221,74,17)" rx="2" ry="2" />
-<text  x="547.81" y="303.5" ></text>
+<title>dyld`dyld4::Loader::forEachBindTarget(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.01%)</title><rect x="1189.1" y="341" width="0.1" height="15.0" fill="rgb(210,26,6)" rx="2" ry="2" />
+<text  x="1192.10" y="351.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (3 samples, 0.06%)</title><rect x="949.7" y="341" width="0.7" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="952.69" y="351.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*.boost::to_address&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;&gt;(boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*) (19 samples, 0.24%)</title><rect x="380.6" y="309" width="2.8" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
+<text  x="383.56" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::pow2_quadratic_prober(unsigned.long) (31 samples, 0.58%)</title><rect x="356.7" y="309" width="6.9" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
-<text  x="359.69" y="319.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_arrays&lt;std::pair&lt;std::basic_string&lt;char&gt;.const, (57 samples, 0.73%)</title><rect x="115.7" y="325" width="8.5" height="15.0" fill="rgb(241,168,40)" rx="2" ry="2" />
+<text  x="118.66" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.02%)</title><rect x="13.3" y="357" width="0.3" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="16.33" y="367.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::mulx64(unsigned.long (24 samples, 0.31%)</title><rect x="518.4" y="277" width="3.6" height="15.0" fill="rgb(226,99,23)" rx="2" ry="2" />
+<text  x="521.42" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.02%)</title><rect x="13.3" y="261" width="0.3" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
-<text  x="16.33" y="271.5" ></text>
+<title>1brc`std::basic_string&lt;char&gt;::__is_long[abi:ne200100]().const (47 samples, 0.60%)</title><rect x="723.9" y="277" width="7.0" height="15.0" fill="rgb(224,90,21)" rx="2" ry="2" />
+<text  x="726.87" y="287.5" ></text>
 </g>
 <g >
-<title>dyld`mach_msg2_trap (15 samples, 0.28%)</title><rect x="1185.1" y="277" width="3.3" height="15.0" fill="rgb(231,121,29)" rx="2" ry="2" />
-<text  x="1188.11" y="287.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (31 samples, 0.40%)</title><rect x="595.2" y="277" width="4.6" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="598.18" y="287.5" ></text>
 </g>
 <g >
-<title>libsystem_pthread`__pthread_init (1 samples, 0.02%)</title><rect x="1188.4" y="197" width="0.3" height="15.0" fill="rgb(227,103,24)" rx="2" ry="2" />
-<text  x="1191.45" y="207.5" ></text>
+<title>1brc`std::__print::__vprint_nonunicode[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.01%)</title><rect x="1171.0" y="277" width="0.2" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
+<text  x="1174.04" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::load_metadata().const (10 samples, 0.19%)</title><rect x="179.7" y="309" width="2.2" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
-<text  x="182.68" y="319.5" ></text>
+<title>1brc`std::basic_string&lt;char&gt;::operator.std::basic_string_view&lt;char&gt;[abi:ne200100]() (1,133 samples, 14.45%)</title><rect x="642.0" y="309" width="170.5" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
+<text  x="644.99" y="319.5" >1brc`std::basic_string..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::pow2_size_policy::position(unsigned.long, (10 samples, 0.19%)</title><rect x="546.6" y="293" width="2.2" height="15.0" fill="rgb(237,147,35)" rx="2" ry="2" />
-<text  x="549.59" y="303.5" ></text>
+<title>dyld`dyld4::ExternallyViewableState::addImages(lsl::Allocator&amp;,.lsl::Allocator&amp;, (4 samples, 0.05%)</title><rect x="1189.4" y="341" width="0.6" height="15.0" fill="rgb(239,160,38)" rx="2" ry="2" />
+<text  x="1192.40" y="351.5" ></text>
 </g>
 <g >
-<title>1brc`decltype(type_policy::extract(fp)).boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (34 samples, 0.64%)</title><rect x="939.0" y="325" width="7.6" height="15.0" fill="rgb(228,106,25)" rx="2" ry="2" />
-<text  x="942.03" y="335.5" ></text>
-</g>
-<g >
-<title>all (5,313 samples, 100%)</title><rect x="10.0" y="421" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
+<title>all (7,840 samples, 100%)</title><rect x="10.0" y="421" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
 <text  x="13.00" y="431.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::reduced_hash(unsigned.long) (9 samples, 0.17%)</title><rect x="181.9" y="309" width="2.0" height="15.0" fill="rgb(247,195,46)" rx="2" ry="2" />
-<text  x="184.90" y="319.5" ></text>
+<title>dyld`mach_msg_overwrite (4 samples, 0.05%)</title><rect x="1189.4" y="277" width="0.6" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
+<text  x="1192.40" y="287.5" ></text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.4" y="245" width="0.3" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.45" y="255.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::match(unsigned.long) (15 samples, 0.19%)</title><rect x="108.4" y="325" width="2.3" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
+<text  x="111.43" y="335.5" ></text>
 </g>
 <g >
-<title>dyld`start (22 samples, 0.41%)</title><rect x="1185.1" y="389" width="4.9" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="1188.11" y="399.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (176 samples, 2.24%)</title><rect x="573.4" y="309" width="26.4" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="576.36" y="319.5" >1..</text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="261" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="271.5" ></text>
+<title>1brc`std::__vformat_to[abi:ne200100]&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char, (1 samples, 0.01%)</title><rect x="1171.0" y="261" width="0.2" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
+<text  x="1174.04" y="271.5" ></text>
 </g>
 <g >
-<title>dyld`dyld3::MachOFile::forEachChainedFixupTarget(Diagnostics&amp;,.dyld_chained_fixups_header (1 samples, 0.02%)</title><rect x="1188.7" y="277" width="0.2" height="15.0" fill="rgb(240,163,39)" rx="2" ry="2" />
-<text  x="1191.67" y="287.5" ></text>
+<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::reduced_hash(unsigned.long) (19 samples, 0.24%)</title><rect x="182.5" y="309" width="2.8" height="15.0" fill="rgb(251,216,51)" rx="2" ry="2" />
+<text  x="185.48" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::match(unsigned.long) (773 samples, 14.55%)</title><rect x="155.7" y="325" width="171.7" height="15.0" fill="rgb(216,50,12)" rx="2" ry="2" />
-<text  x="158.70" y="335.5" >1brc`boost::unordered:..</text>
+<title>libsystem_kernel`__munmap (1 samples, 0.01%)</title><rect x="1170.9" y="341" width="0.1" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1173.89" y="351.5" ></text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.9" y="325" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.89" y="335.5" ></text>
+<title>1brc`std::__format::__handle_replacement_field[abi:ne200100]&lt;char.const*, (1 samples, 0.01%)</title><rect x="1171.0" y="165" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="1174.04" y="175.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::__is_long[abi:ne200100]().const (33 samples, 0.62%)</title><rect x="699.2" y="261" width="7.3" height="15.0" fill="rgb(224,90,21)" rx="2" ry="2" />
-<text  x="702.17" y="271.5" ></text>
+<title>1brc`??? (27 samples, 0.34%)</title><rect x="689.0" y="261" width="4.0" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="691.95" y="271.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (17 samples, 0.32%)</title><rect x="428.0" y="309" width="3.8" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="430.99" y="319.5" ></text>
+<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (13 samples, 0.17%)</title><rect x="376.9" y="277" width="2.0" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="379.94" y="287.5" ></text>
 </g>
 <g >
-<title>Thread_4768287.DispatchQueue_1: (5,217 samples, 98.19%)</title><rect x="10.0" y="405" width="1158.7" height="15.0" fill="rgb(219,64,15)" rx="2" ry="2" />
-<text  x="13.00" y="415.5" >Thread_4768287.DispatchQueue_1:</text>
+<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (30 samples, 0.38%)</title><rect x="383.4" y="309" width="4.5" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
+<text  x="386.42" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`decltype(std::declval&lt;char.const*&gt;()(std::declval&lt;double&amp;&gt;())) (1 samples, 0.02%)</title><rect x="1168.5" y="181" width="0.2" height="15.0" fill="rgb(236,146,34)" rx="2" ry="2" />
-<text  x="1171.46" y="191.5" ></text>
+<title>dyld`dyld3::MachOAnalyzer::withChainStarts(Diagnostics&amp;,.unsigned (1 samples, 0.01%)</title><rect x="1187.1" y="373" width="0.2" height="15.0" fill="rgb(247,193,46)" rx="2" ry="2" />
+<text  x="1190.14" y="383.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::get().const (32 samples, 0.60%)</title><rect x="346.5" y="325" width="7.1" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
-<text  x="349.48" y="335.5" ></text>
+<title>1brc`DYLD-STUB$$std::basic_string_view&lt;char&gt;::compare(std::basic_string_view&lt;char&gt;).const (62 samples, 0.79%)</title><rect x="850.9" y="293" width="9.3" height="15.0" fill="rgb(249,205,49)" rx="2" ry="2" />
+<text  x="853.90" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`std::__string_view_hash&lt;char&gt;::operator()[abi:ne200100](std::basic_string_view&lt;char&gt;).const (314 samples, 5.91%)</title><rect x="454.6" y="277" width="69.8" height="15.0" fill="rgb(207,11,2)" rx="2" ry="2" />
-<text  x="457.64" y="287.5" >1brc`st..</text>
+<title>dyld`invocation.function (1 samples, 0.01%)</title><rect x="1189.1" y="213" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1192.10" y="223.5" ></text>
 </g>
 <g >
-<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.02%)</title><rect x="13.3" y="245" width="0.3" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
-<text  x="16.33" y="255.5" ></text>
+<title>1brc`std::__print::__vprint_unicode[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.01%)</title><rect x="1171.0" y="309" width="0.2" height="15.0" fill="rgb(249,206,49)" rx="2" ry="2" />
+<text  x="1174.04" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`find_sep_and_new_line(char.const*, (890 samples, 16.75%)</title><rect x="950.4" y="341" width="197.6" height="15.0" fill="rgb(251,214,51)" rx="2" ry="2" />
-<text  x="953.36" y="351.5" >1brc`find_sep_and_new_lin..</text>
+<title>1brc`boost::unordered::detail::foa::unchecked_countr_zero(int) (9 samples, 0.11%)</title><rect x="567.0" y="325" width="1.4" height="15.0" fill="rgb(253,225,53)" rx="2" ry="2" />
+<text  x="570.04" y="335.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::APIs::runAllInitializersForMain() (1 samples, 0.02%)</title><rect x="1188.4" y="357" width="0.3" height="15.0" fill="rgb(244,182,43)" rx="2" ry="2" />
-<text  x="1191.45" y="367.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (32 samples, 0.41%)</title><rect x="553.2" y="309" width="4.8" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="556.19" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode,.unsigned (4 samples, 0.08%)</title><rect x="1189.1" y="325" width="0.9" height="15.0" fill="rgb(233,131,31)" rx="2" ry="2" />
-<text  x="1192.11" y="335.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="165" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="16.01" y="175.5" ></text>
 </g>
 <g >
-<title>1brc`??? (37 samples, 0.70%)</title><rect x="446.4" y="277" width="8.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="449.42" y="287.5" ></text>
+<title>1brc`boost::unordered::detail::mulx64(unsigned.long (60 samples, 0.77%)</title><rect x="522.0" y="277" width="9.1" height="15.0" fill="rgb(231,120,28)" rx="2" ry="2" />
+<text  x="525.04" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (60 samples, 1.13%)</title><rect x="535.7" y="309" width="13.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="538.70" y="319.5" ></text>
+<title>1brc`std::basic_string&lt;char&gt;::operator.std::basic_string_view&lt;char&gt;[abi:ne200100]() (2 samples, 0.03%)</title><rect x="961.7" y="325" width="0.3" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
+<text  x="964.68" y="335.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode,.unsigned (15 samples, 0.28%)</title><rect x="1185.1" y="357" width="3.3" height="15.0" fill="rgb(233,131,31)" rx="2" ry="2" />
-<text  x="1188.11" y="367.5" ></text>
+<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (386 samples, 4.92%)</title><rect x="456.1" y="245" width="58.1" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
+<text  x="459.11" y="255.5" >1brc`s..</text>
 </g>
 <g >
-<title>dyld`dyld4::prepare(dyld4::APIs&amp;,.mach_o::Header (7 samples, 0.13%)</title><rect x="1188.4" y="373" width="1.6" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1191.45" y="383.5" ></text>
+<title>1brc`std::basic_string&lt;char&gt;::size[abi:ne200100]().const (2 samples, 0.03%)</title><rect x="812.5" y="309" width="0.3" height="15.0" fill="rgb(215,49,11)" rx="2" ry="2" />
+<text  x="815.52" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::__is_long[abi:ne200100]().const (31 samples, 0.58%)</title><rect x="724.0" y="277" width="6.9" height="15.0" fill="rgb(224,90,21)" rx="2" ry="2" />
-<text  x="727.04" y="287.5" ></text>
+<title>dyld`dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned.int) (4 samples, 0.05%)</title><rect x="1189.4" y="309" width="0.6" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="1192.40" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::__format_spec::__parser&lt;char&gt;::__parser() (1 samples, 0.02%)</title><rect x="1168.5" y="85" width="0.2" height="15.0" fill="rgb(212,34,8)" rx="2" ry="2" />
-<text  x="1171.46" y="95.5" ></text>
+<title>1brc`??? (110 samples, 1.40%)</title><rect x="870.6" y="261" width="16.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="873.62" y="271.5" ></text>
 </g>
 <g >
-<title>dyld`vm_protect (1 samples, 0.02%)</title><rect x="1188.7" y="53" width="0.2" height="15.0" fill="rgb(224,89,21)" rx="2" ry="2" />
-<text  x="1191.67" y="63.5" ></text>
+<title>1brc`boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;::destroy&lt;std::allocator&lt;std::pair&lt;std::basic_string&lt;char&gt; (1 samples, 0.01%)</title><rect x="13.0" y="149" width="0.2" height="15.0" fill="rgb(233,129,30)" rx="2" ry="2" />
+<text  x="16.01" y="159.5" ></text>
 </g>
 <g >
-<title>1brc`??? (1 samples, 0.02%)</title><rect x="548.8" y="261" width="0.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="551.81" y="271.5" ></text>
+<title>1brc`KeyHash::operator()(std::basic_string_view&lt;char&gt;).const (565 samples, 7.21%)</title><rect x="430.7" y="293" width="85.0" height="15.0" fill="rgb(239,156,37)" rx="2" ry="2" />
+<text  x="433.68" y="303.5" >1brc`KeyHa..</text>
 </g>
 <g >
-<title>dyld`dyld4::ExternallyViewableState::addImages(lsl::Allocator&amp;,.lsl::Allocator&amp;, (4 samples, 0.08%)</title><rect x="1189.1" y="341" width="0.9" height="15.0" fill="rgb(239,160,38)" rx="2" ry="2" />
-<text  x="1192.11" y="351.5" ></text>
+<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (20 samples, 0.26%)</title><rect x="389.0" y="309" width="3.0" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="391.98" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`dyld3::MachOFile::trieWalk(Diagnostics&amp;,.unsigned (1 samples, 0.02%)</title><rect x="1188.9" y="261" width="0.2" height="15.0" fill="rgb(215,46,11)" rx="2" ry="2" />
-<text  x="1191.89" y="271.5" ></text>
+<title>1brc`boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;::value_from(std::pair&lt;std::basic_string&lt;char&gt; (11 samples, 0.14%)</title><rect x="551.5" y="309" width="1.7" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
+<text  x="554.54" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (62 samples, 1.17%)</title><rect x="509.1" y="213" width="13.7" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
-<text  x="512.05" y="223.5" ></text>
+<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (7 samples, 0.09%)</title><rect x="557.0" y="293" width="1.0" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="559.95" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (6 samples, 0.11%)</title><rect x="561.5" y="293" width="1.3" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="564.47" y="303.5" ></text>
+<title>1brc`std::__print::__vprint_unicode_posix[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.01%)</title><rect x="1171.0" y="293" width="0.2" height="15.0" fill="rgb(249,203,48)" rx="2" ry="2" />
+<text  x="1174.04" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (18 samples, 0.34%)</title><rect x="602.8" y="277" width="4.0" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="605.78" y="287.5" ></text>
+<title>dyld`start (19 samples, 0.24%)</title><rect x="1187.1" y="389" width="2.9" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="1190.14" y="399.5" ></text>
 </g>
 <g >
-<title>1brc`std::__format::__handle_replacement_field[abi:ne200100]&lt;char.const*, (1 samples, 0.02%)</title><rect x="1168.5" y="229" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="1171.46" y="239.5" ></text>
+<title>dyld`__open (1 samples, 0.01%)</title><rect x="1189.2" y="245" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1192.25" y="255.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (6 samples, 0.11%)</title><rect x="579.0" y="309" width="1.3" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
-<text  x="582.01" y="319.5" ></text>
+<title>dyld`mach_msg2_internal (12 samples, 0.15%)</title><rect x="1187.3" y="293" width="1.8" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
+<text  x="1190.29" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (19 samples, 0.36%)</title><rect x="407.1" y="309" width="4.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="410.11" y="319.5" ></text>
+<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::get().const (46 samples, 0.59%)</title><rect x="325.6" y="325" width="6.9" height="15.0" fill="rgb(211,29,7)" rx="2" ry="2" />
+<text  x="328.62" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="13.3" y="213" width="0.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="16.33" y="223.5" ></text>
+<title>1brc`DYLD-STUB$$memcmp (28 samples, 0.36%)</title><rect x="900.9" y="261" width="4.2" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
+<text  x="903.87" y="271.5" ></text>
 </g>
 <g >
-<title>dyld`mach_o::Fixups::forEachBindTarget_ChainedFixups(Diagnostics&amp;,.void (1 samples, 0.02%)</title><rect x="1188.7" y="293" width="0.2" height="15.0" fill="rgb(253,223,53)" rx="2" ry="2" />
-<text  x="1191.67" y="303.5" ></text>
+<title>1brc`std::operator==[abi:ne200100]&lt;char,.1&gt;(std::basic_string_view&lt;char&gt;, (936 samples, 11.94%)</title><rect x="812.8" y="309" width="140.9" height="15.0" fill="rgb(243,177,42)" rx="2" ry="2" />
+<text  x="815.82" y="319.5" >1brc`std::operato..</text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.9" y="293" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.89" y="303.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::unchecked_countr_zero(int) (47 samples, 0.60%)</title><rect x="134.0" y="325" width="7.1" height="15.0" fill="rgb(249,204,48)" rx="2" ry="2" />
+<text  x="137.02" y="335.5" ></text>
 </g>
 <g >
-<title>dyld`DyldSharedCache::forEachRegion(void.(void (1 samples, 0.02%)</title><rect x="1188.7" y="85" width="0.2" height="15.0" fill="rgb(244,183,43)" rx="2" ry="2" />
-<text  x="1191.67" y="95.5" ></text>
+<title>1brc`std::char_traits&lt;char&gt;::compare[abi:ne200100](char.const*, (442 samples, 5.64%)</title><rect x="887.2" y="277" width="66.5" height="15.0" fill="rgb(208,17,4)" rx="2" ry="2" />
+<text  x="890.17" y="287.5" >1brc`st..</text>
 </g>
 <g >
-<title>dyld`start (5,217 samples, 98.19%)</title><rect x="10.0" y="389" width="1158.7" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
-<text  x="13.00" y="399.5" >dyld`start</text>
+<title>dyld`dyld3::MachOFile::forEachChainedFixupTarget(Diagnostics&amp;,.dyld_chained_fixups_header (1 samples, 0.01%)</title><rect x="1189.1" y="277" width="0.1" height="15.0" fill="rgb(240,163,39)" rx="2" ry="2" />
+<text  x="1192.10" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::reduced_hash(unsigned.long) (8 samples, 0.15%)</title><rect x="193.7" y="309" width="1.8" height="15.0" fill="rgb(251,216,51)" rx="2" ry="2" />
-<text  x="196.67" y="319.5" ></text>
+<title>libc++.1`std::_Floating_to_chars[abi:ne200100]&lt;(std::_Floating_to_chars_overload)2,.double&gt;(char*, (1 samples, 0.01%)</title><rect x="1171.0" y="69" width="0.2" height="15.0" fill="rgb(237,148,35)" rx="2" ry="2" />
+<text  x="1174.04" y="79.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$decltype(type_policy::extract(fp)).boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (6 samples, 0.11%)</title><rect x="154.4" y="325" width="1.3" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="157.36" y="335.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::simde_mm_movemask_epi8(__simd128_uint8_t) (43 samples, 0.55%)</title><rect x="170.6" y="309" width="6.5" height="15.0" fill="rgb(230,117,28)" rx="2" ry="2" />
+<text  x="173.59" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::Loader::hasExportedSymbol(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.02%)</title><rect x="1188.9" y="277" width="0.2" height="15.0" fill="rgb(234,134,32)" rx="2" ry="2" />
-<text  x="1191.89" y="287.5" ></text>
+<title>dyld`dyld4::RuntimeState::notifyDebuggerLoad(std::span&lt;dyld4::Loader.const*, (4 samples, 0.05%)</title><rect x="1189.4" y="357" width="0.6" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="1192.40" y="367.5" ></text>
 </g>
 <g >
-<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (274 samples, 5.16%)</title><rect x="462.0" y="245" width="60.8" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
-<text  x="464.97" y="255.5" >1brc`s..</text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (9 samples, 0.11%)</title><rect x="114.3" y="325" width="1.4" height="15.0" fill="rgb(237,150,35)" rx="2" ry="2" />
+<text  x="117.30" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::load_metadata().const (20 samples, 0.38%)</title><rect x="189.2" y="309" width="4.5" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
-<text  x="192.23" y="319.5" ></text>
+<title>1brc`output_stations(boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.01%)</title><rect x="1171.0" y="357" width="0.2" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
+<text  x="1174.04" y="367.5" ></text>
 </g>
 <g >
-<title>dyld`PatchTableV4::forEachPatchableCacheUseOfExport(unsigned.int, (1 samples, 0.02%)</title><rect x="1188.7" y="165" width="0.2" height="15.0" fill="rgb(240,164,39)" rx="2" ry="2" />
-<text  x="1191.67" y="175.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (81 samples, 1.03%)</title><rect x="366.7" y="293" width="12.2" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="369.71" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (50 samples, 0.94%)</title><rect x="132.8" y="325" width="11.1" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
-<text  x="135.82" y="335.5" ></text>
+<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (25 samples, 0.32%)</title><rect x="319.9" y="293" width="3.8" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
+<text  x="322.90" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (40 samples, 0.75%)</title><rect x="565.0" y="309" width="8.9" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="568.02" y="319.5" ></text>
+<title>1brc`??? (142 samples, 1.81%)</title><rect x="865.8" y="277" width="21.4" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="868.80" y="287.5" >1..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;::value_from(std::pair&lt;std::basic_string&lt;char&gt; (6 samples, 0.11%)</title><rect x="555.9" y="309" width="1.3" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
-<text  x="558.91" y="319.5" ></text>
+<title>1brc`??? (82 samples, 1.05%)</title><rect x="435.3" y="277" width="12.4" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="438.34" y="287.5" ></text>
 </g>
 <g >
-<title>dyld`mach_msg_overwrite (4 samples, 0.08%)</title><rect x="1189.1" y="277" width="0.9" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
-<text  x="1192.11" y="287.5" ></text>
+<title>1brc`??? (176 samples, 2.24%)</title><rect x="615.5" y="309" width="26.5" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="618.50" y="319.5" >1..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::mulx_mix::mix&lt;KeyHash,.std::basic_string_view&lt;char&gt;&gt;(KeyHash (455 samples, 8.56%)</title><rect x="434.6" y="309" width="101.1" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
-<text  x="437.65" y="319.5" >1brc`boost::..</text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (62 samples, 0.79%)</title><rect x="590.5" y="293" width="9.3" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="593.52" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`parse_value(char.const*) (91 samples, 1.71%)</title><rect x="1148.0" y="341" width="20.2" height="15.0" fill="rgb(251,216,51)" rx="2" ry="2" />
-<text  x="1151.02" y="351.5" ></text>
+<title>1brc`std::basic_string_view&lt;char&gt;::compare(std::basic_string_view&lt;char&gt;).const (621 samples, 7.92%)</title><rect x="860.2" y="293" width="93.5" height="15.0" fill="rgb(254,225,53)" rx="2" ry="2" />
+<text  x="863.23" y="303.5" >1brc`std::b..</text>
 </g>
 <g >
-<title>dyld`dyld3::MachOAnalyzer::withVMLayout(Diagnostics&amp;,.void (1 samples, 0.02%)</title><rect x="1188.7" y="325" width="0.2" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="1191.67" y="335.5" ></text>
+<title>1brc`std::basic_string&lt;char&gt;::size[abi:ne200100]().const (210 samples, 2.68%)</title><rect x="699.3" y="293" width="31.6" height="15.0" fill="rgb(215,49,11)" rx="2" ry="2" />
+<text  x="702.34" y="303.5" >1b..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="548.8" y="293" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="551.81" y="303.5" ></text>
+<title>dyld`invocation.function (1 samples, 0.01%)</title><rect x="1189.1" y="309" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1192.10" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`dyld3::MachOFile::forEachTreatAsWeakDef(void.(char (1 samples, 0.02%)</title><rect x="1188.9" y="341" width="0.2" height="15.0" fill="rgb(205,0,0)" rx="2" ry="2" />
-<text  x="1191.89" y="351.5" ></text>
+<title>1brc`std::__formatter::__to_buffer[abi:ne200100]&lt;double&gt;(char*,.char*, (1 samples, 0.01%)</title><rect x="1171.0" y="85" width="0.2" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="1174.04" y="95.5" ></text>
 </g>
 <g >
-<title>libsystem_kernel`__munmap (1 samples, 0.02%)</title><rect x="1168.2" y="341" width="0.3" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="1171.23" y="351.5" ></text>
+<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (77 samples, 0.98%)</title><rect x="502.6" y="213" width="11.6" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
+<text  x="505.62" y="223.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::match(unsigned.long) (13 samples, 0.24%)</title><rect x="115.9" y="325" width="2.9" height="15.0" fill="rgb(211,30,7)" rx="2" ry="2" />
-<text  x="118.94" y="335.5" ></text>
+<title>1brc`aggregate(char.const*, (6,254 samples, 79.77%)</title><rect x="20.7" y="341" width="941.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="23.69" y="351.5" >1brc`aggregate(char.const*,</text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.4" y="261" width="0.3" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.45" y="271.5" ></text>
+<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::pow2_quadratic_prober(unsigned.long) (51 samples, 0.65%)</title><rect x="335.4" y="309" width="7.7" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
+<text  x="338.40" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="548.8" y="277" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
-<text  x="551.81" y="287.5" ></text>
+<title>1brc`std::basic_format_context&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char&gt;::iterator (1 samples, 0.01%)</title><rect x="1171.0" y="149" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1174.04" y="159.5" ></text>
 </g>
 <g >
-<title>dyld`_kernelrpc_mach_vm_protect_trap (1 samples, 0.02%)</title><rect x="1188.7" y="37" width="0.2" height="15.0" fill="rgb(251,213,51)" rx="2" ry="2" />
-<text  x="1191.67" y="47.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="293" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="16.01" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`std::__format_spec::__parser&lt;char&gt;::__parser() (1 samples, 0.02%)</title><rect x="1168.5" y="101" width="0.2" height="15.0" fill="rgb(212,34,8)" rx="2" ry="2" />
-<text  x="1171.46" y="111.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::mulx(unsigned.long) (18 samples, 0.23%)</title><rect x="428.0" y="293" width="2.7" height="15.0" fill="rgb(246,191,45)" rx="2" ry="2" />
+<text  x="430.97" y="303.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::Loader::resolveSymbol(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.02%)</title><rect x="1188.9" y="309" width="0.2" height="15.0" fill="rgb(209,22,5)" rx="2" ry="2" />
-<text  x="1191.89" y="319.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (93 samples, 1.19%)</title><rect x="544.0" y="325" width="14.0" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="547.01" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::empty_::empty_value&lt;KeyHash,.0u, (7 samples, 0.13%)</title><rect x="539.5" y="293" width="1.5" height="15.0" fill="rgb(216,54,13)" rx="2" ry="2" />
-<text  x="542.48" y="303.5" ></text>
+<title>dyld`invocation.function (1 samples, 0.01%)</title><rect x="1189.1" y="245" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1192.10" y="255.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;::value_from(std::pair&lt;std::basic_string&lt;char&gt; (12 samples, 0.23%)</title><rect x="551.0" y="309" width="2.7" height="15.0" fill="rgb(241,168,40)" rx="2" ry="2" />
-<text  x="554.03" y="319.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="277" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="16.01" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`aggregate(char.const*, (15 samples, 0.28%)</title><rect x="10.0" y="357" width="3.3" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (20 samples, 0.26%)</title><rect x="131.0" y="325" width="3.0" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
+<text  x="134.01" y="335.5" ></text>
+</g>
+<g >
+<title>1brc`??? (12 samples, 0.15%)</title><rect x="18.9" y="341" width="1.8" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="21.88" y="351.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="181" width="0.2" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="16.01" y="191.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (46 samples, 0.59%)</title><rect x="560.1" y="309" width="6.9" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="563.11" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.01%)</title><rect x="13.0" y="261" width="0.2" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
+<text  x="16.01" y="271.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$decltype(type_policy::extract(fp)).boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (12 samples, 0.15%)</title><rect x="142.1" y="325" width="1.9" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
+<text  x="145.15" y="335.5" ></text>
+</g>
+<g >
+<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.01%)</title><rect x="13.0" y="213" width="0.2" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
+<text  x="16.01" y="223.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::pow2_size_policy::position(unsigned.long, (9 samples, 0.11%)</title><rect x="542.4" y="293" width="1.3" height="15.0" fill="rgb(237,147,35)" rx="2" ry="2" />
+<text  x="545.35" y="303.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::empty_::empty_value&lt;KeyHash,.0u, (8 samples, 0.10%)</title><rect x="535.4" y="293" width="1.2" height="15.0" fill="rgb(216,54,13)" rx="2" ry="2" />
+<text  x="538.43" y="303.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::load_metadata().const (19 samples, 0.24%)</title><rect x="165.0" y="309" width="2.9" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
+<text  x="168.03" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_arrays&lt;std::pair&lt;std::basic_string&lt;char&gt;.const, (87 samples, 1.11%)</title><rect x="378.9" y="325" width="13.1" height="15.0" fill="rgb(246,189,45)" rx="2" ry="2" />
+<text  x="381.90" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`open_with_subsystem (1 samples, 0.01%)</title><rect x="1189.2" y="277" width="0.2" height="15.0" fill="rgb(217,59,14)" rx="2" ry="2" />
+<text  x="1192.25" y="287.5" ></text>
+</g>
+<g >
+<title>1brc`std::__string_view_hash&lt;char&gt;::operator()[abi:ne200100](std::basic_string_view&lt;char&gt;).const (452 samples, 5.77%)</title><rect x="447.7" y="277" width="68.0" height="15.0" fill="rgb(207,11,2)" rx="2" ry="2" />
+<text  x="450.68" y="287.5" >1brc`st..</text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (8 samples, 0.10%)</title><rect x="962.9" y="341" width="1.2" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="965.88" y="351.5" ></text>
+</g>
+<g >
+<title>1brc`std::basic_string&lt;char&gt;::__is_long[abi:ne200100]().const (42 samples, 0.54%)</title><rect x="693.0" y="261" width="6.3" height="15.0" fill="rgb(224,90,21)" rx="2" ry="2" />
+<text  x="696.02" y="271.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (50 samples, 0.64%)</title><rect x="410.7" y="309" width="7.5" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="413.66" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`find_sep_and_new_line(char.const*, (1,233 samples, 15.73%)</title><rect x="964.2" y="341" width="185.6" height="15.0" fill="rgb(251,214,51)" rx="2" ry="2" />
+<text  x="967.23" y="351.5" >1brc`find_sep_and_new_li..</text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::mulx(unsigned.long) (2 samples, 0.03%)</title><rect x="543.7" y="309" width="0.3" height="15.0" fill="rgb(251,211,50)" rx="2" ry="2" />
+<text  x="546.71" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::simde_mm_movemask_epi8(__simd128_uint8_t) (828 samples, 10.56%)</title><rect x="185.3" y="309" width="124.7" height="15.0" fill="rgb(235,138,33)" rx="2" ry="2" />
+<text  x="188.34" y="319.5" >1brc`boost::uno..</text>
+</g>
+<g >
+<title>1brc`??? (104 samples, 1.33%)</title><rect x="683.7" y="277" width="15.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="686.68" y="287.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;::value_from(std::pair&lt;std::basic_string&lt;char&gt; (12 samples, 0.15%)</title><rect x="546.9" y="309" width="1.8" height="15.0" fill="rgb(241,168,40)" rx="2" ry="2" />
+<text  x="549.87" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`std::basic_string&lt;char&gt;::__get_short_size[abi:ne200100]().const (19 samples, 0.24%)</title><rect x="721.0" y="277" width="2.9" height="15.0" fill="rgb(226,98,23)" rx="2" ry="2" />
+<text  x="724.01" y="287.5" ></text>
+</g>
+<g >
+<title>1brc`aggregate(char.const*, (20 samples, 0.26%)</title><rect x="10.0" y="357" width="3.0" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
 <text  x="13.00" y="367.5" ></text>
 </g>
 <g >
-<title>1brc`??? (14 samples, 0.26%)</title><rect x="696.1" y="261" width="3.1" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="699.06" y="271.5" ></text>
+<title>dyld`dyld4::prepare(dyld4::APIs&amp;,.mach_o::Header (6 samples, 0.08%)</title><rect x="1189.1" y="373" width="0.9" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="1192.10" y="383.5" ></text>
 </g>
 <g >
-<title>1brc`??? (102 samples, 1.92%)</title><rect x="683.8" y="293" width="22.7" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="686.84" y="303.5" >1..</text>
+<title>1brc`boost::empty_::empty_value&lt;std::equal_to&lt;void&gt;,.1u, (23 samples, 0.29%)</title><rect x="418.2" y="309" width="3.4" height="15.0" fill="rgb(218,59,14)" rx="2" ry="2" />
+<text  x="421.18" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.02%)</title><rect x="13.3" y="341" width="0.3" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
-<text  x="16.33" y="351.5" ></text>
+<title>dyld`dyld3::MachOAnalyzer::withVMLayout(Diagnostics&amp;,.void (1 samples, 0.01%)</title><rect x="1189.1" y="325" width="0.1" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="1192.10" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::mulx64(unsigned.long (26 samples, 0.49%)</title><rect x="529.9" y="277" width="5.8" height="15.0" fill="rgb(231,120,28)" rx="2" ry="2" />
-<text  x="532.93" y="287.5" ></text>
+<title>dyld`mach_o::Fixups::forEachBindTarget_ChainedFixups(Diagnostics&amp;,.void (1 samples, 0.01%)</title><rect x="1189.1" y="293" width="0.1" height="15.0" fill="rgb(253,223,53)" rx="2" ry="2" />
+<text  x="1192.10" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::operator.std::basic_string_view&lt;char&gt;[abi:ne200100]() (2 samples, 0.04%)</title><rect x="946.6" y="325" width="0.4" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="949.58" y="335.5" ></text>
+<title>1brc`std::__loadword[abi:ne200100]&lt;unsigned.long&gt;(void (22 samples, 0.28%)</title><rect x="499.3" y="213" width="3.3" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
+<text  x="502.31" y="223.5" ></text>
 </g>
 <g >
-<title>1brc`??? (1 samples, 0.02%)</title><rect x="1168.5" y="117" width="0.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="1171.46" y="127.5" ></text>
+<title>dyld`_dyld_start (106 samples, 1.35%)</title><rect x="1171.2" y="389" width="15.9" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="1174.19" y="399.5" ></text>
 </g>
 <g >
-<title>1brc`output_stations(boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.02%)</title><rect x="1168.5" y="357" width="0.2" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
-<text  x="1171.46" y="367.5" ></text>
+<title>dyld`dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode,.unsigned (4 samples, 0.05%)</title><rect x="1189.4" y="325" width="0.6" height="15.0" fill="rgb(233,131,31)" rx="2" ry="2" />
+<text  x="1192.40" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (14 samples, 0.26%)</title><rect x="343.4" y="293" width="3.1" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="346.37" y="303.5" ></text>
+<title>dyld`dyld3::MachOLoaded::fixupAllChainedFixups(Diagnostics&amp;,.dyld_chained_starts_in_image (1 samples, 0.01%)</title><rect x="1187.1" y="341" width="0.2" height="15.0" fill="rgb(254,228,54)" rx="2" ry="2" />
+<text  x="1190.14" y="351.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::pow2_quadratic_prober::get().const (12 samples, 0.23%)</title><rect x="120.8" y="325" width="2.7" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="123.83" y="335.5" ></text>
+<title>dyld`dyld4::JustInTimeLoader::makeLaunchLoader(Diagnostics&amp;,.dyld4::RuntimeState&amp;) (1 samples, 0.01%)</title><rect x="1189.2" y="357" width="0.2" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
+<text  x="1192.25" y="367.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*.boost::to_address&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;&gt;(boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*) (5 samples, 0.09%)</title><rect x="398.9" y="309" width="1.1" height="15.0" fill="rgb(216,51,12)" rx="2" ry="2" />
-<text  x="401.89" y="319.5" ></text>
+<title>1brc`std::basic_format_context&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char&gt;::iterator (1 samples, 0.01%)</title><rect x="1171.0" y="133" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1174.04" y="143.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*.boost::to_address&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;&gt;(boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*) (8 samples, 0.15%)</title><rect x="405.3" y="309" width="1.8" height="15.0" fill="rgb(220,72,17)" rx="2" ry="2" />
-<text  x="408.33" y="319.5" ></text>
+<title>dyld`mach_msg2_internal (4 samples, 0.05%)</title><rect x="1189.4" y="261" width="0.6" height="15.0" fill="rgb(205,1,0)" rx="2" ry="2" />
+<text  x="1192.40" y="271.5" ></text>
 </g>
 <g >
-<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (177 samples, 3.33%)</title><rect x="483.5" y="229" width="39.3" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
-<text  x="486.51" y="239.5" >1br..</text>
+<title>dyld`invocation.function (1 samples, 0.01%)</title><rect x="1187.1" y="357" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1190.14" y="367.5" ></text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="149" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="159.5" ></text>
+<title>1brc`const&amp;.boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (49 samples, 0.62%)</title><rect x="954.3" y="309" width="7.4" height="15.0" fill="rgb(250,207,49)" rx="2" ry="2" />
+<text  x="957.30" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::operator.std::basic_string_view&lt;char&gt;[abi:ne200100]() (698 samples, 13.14%)</title><rect x="649.6" y="309" width="155.1" height="15.0" fill="rgb(235,140,33)" rx="2" ry="2" />
-<text  x="652.64" y="319.5" >1brc`std::basic_str..</text>
+<title>1brc`std::pair&lt;std::basic_string&lt;char&gt;.const, (13 samples, 0.17%)</title><rect x="323.7" y="293" width="1.9" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
+<text  x="326.66" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (62 samples, 1.17%)</title><rect x="382.2" y="309" width="13.8" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="385.23" y="319.5" ></text>
+<title>1brc`boost::empty_::empty_value&lt;KeyHash,.0u, (11 samples, 0.14%)</title><rect x="540.7" y="293" width="1.7" height="15.0" fill="rgb(221,74,17)" rx="2" ry="2" />
+<text  x="543.70" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (3 samples, 0.06%)</title><rect x="153.7" y="325" width="0.7" height="15.0" fill="rgb(246,188,45)" rx="2" ry="2" />
-<text  x="156.70" y="335.5" ></text>
+<title>dyld`dyld4::SyscallDelegate::mapFileReadOnly(Diagnostics&amp;,.char (1 samples, 0.01%)</title><rect x="1189.2" y="309" width="0.2" height="15.0" fill="rgb(218,63,15)" rx="2" ry="2" />
+<text  x="1192.25" y="319.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::PrebuiltLoader::runInitializers(dyld4::RuntimeState&amp;).const (1 samples, 0.02%)</title><rect x="1188.4" y="341" width="0.3" height="15.0" fill="rgb(237,149,35)" rx="2" ry="2" />
-<text  x="1191.45" y="351.5" ></text>
+<title>dyld`dyld3::MachOFile::read_uleb128(Diagnostics&amp;,.unsigned (1 samples, 0.01%)</title><rect x="1189.1" y="181" width="0.1" height="15.0" fill="rgb(243,177,42)" rx="2" ry="2" />
+<text  x="1192.10" y="191.5" ></text>
 </g>
 <g >
-<title>1brc`create_weather_station_map() (5,200 samples, 97.87%)</title><rect x="13.6" y="357" width="1154.9" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
-<text  x="16.55" y="367.5" >1brc`create_weather_station_map()</text>
+<title>libsystem_platform`_platform_memcmp (323 samples, 4.12%)</title><rect x="905.1" y="261" width="48.6" height="15.0" fill="rgb(214,45,10)" rx="2" ry="2" />
+<text  x="908.08" y="271.5" >libs..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::mulx(unsigned.long) (51 samples, 0.96%)</title><rect x="524.4" y="293" width="11.3" height="15.0" fill="rgb(251,211,50)" rx="2" ry="2" />
-<text  x="527.38" y="303.5" ></text>
+<title>libc++.1`std::__d2fixed_buffered_n(char*,.char*, (1 samples, 0.01%)</title><rect x="1171.0" y="37" width="0.2" height="15.0" fill="rgb(233,130,31)" rx="2" ry="2" />
+<text  x="1174.04" y="47.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::RuntimeState::notifyDebuggerLoad(std::span&lt;dyld4::Loader.const*, (4 samples, 0.08%)</title><rect x="1189.1" y="357" width="0.9" height="15.0" fill="rgb(220,69,16)" rx="2" ry="2" />
-<text  x="1192.11" y="367.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (107 samples, 1.36%)</title><rect x="362.8" y="309" width="16.1" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
+<text  x="365.80" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::simde_mm_movemask_epi8(__simd128_uint8_t) (594 samples, 11.18%)</title><rect x="195.5" y="309" width="131.9" height="15.0" fill="rgb(235,138,33)" rx="2" ry="2" />
-<text  x="198.45" y="319.5" >1brc`boost::unor..</text>
+<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::pow2_quadratic_prober(unsigned.long) (70 samples, 0.89%)</title><rect x="332.5" y="325" width="10.6" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
+<text  x="335.54" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`std::__vformat_to[abi:ne200100]&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char, (1 samples, 0.02%)</title><rect x="1168.5" y="261" width="0.2" height="15.0" fill="rgb(230,115,27)" rx="2" ry="2" />
-<text  x="1171.46" y="271.5" ></text>
+<title>dyld`dyld4::RemoteNotificationResponder::blockOnSynchronousEvent(unsigned.int) (12 samples, 0.15%)</title><rect x="1187.3" y="341" width="1.8" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="1190.29" y="351.5" ></text>
 </g>
 <g >
-<title>1brc`std::__loadword[abi:ne200100]&lt;unsigned.int&gt;(void (16 samples, 0.30%)</title><rect x="503.7" y="213" width="3.6" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
-<text  x="506.72" y="223.5" ></text>
+<title>dyld`dyld4::ExternallyViewableState::createMinimalInfo(lsl::Allocator&amp;,.unsigned (12 samples, 0.15%)</title><rect x="1187.3" y="373" width="1.8" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
+<text  x="1190.29" y="383.5" ></text>
 </g>
 <g >
-<title>1brc`??? (63 samples, 1.19%)</title><rect x="864.6" y="261" width="14.0" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="867.63" y="271.5" ></text>
+<title>1brc`create_weather_station_map() (7,693 samples, 98.12%)</title><rect x="13.2" y="357" width="1157.8" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
+<text  x="16.16" y="367.5" >1brc`create_weather_station_map()</text>
 </g>
 <g >
-<title>1brc`decltype(fp0(nullptr,.0, (1 samples, 0.02%)</title><rect x="13.3" y="229" width="0.3" height="15.0" fill="rgb(219,65,15)" rx="2" ry="2" />
-<text  x="16.33" y="239.5" ></text>
+<title>1brc`decltype(std::declval&lt;char.const*&gt;()(std::declval&lt;double&amp;&gt;())) (1 samples, 0.01%)</title><rect x="1171.0" y="181" width="0.2" height="15.0" fill="rgb(236,146,34)" rx="2" ry="2" />
+<text  x="1174.04" y="191.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::pow2_quadratic_prober::pow2_quadratic_prober(unsigned.long) (45 samples, 0.85%)</title><rect x="353.6" y="325" width="10.0" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
-<text  x="356.58" y="335.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (84 samples, 1.07%)</title><rect x="531.1" y="309" width="12.6" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="534.07" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (17 samples, 0.32%)</title><rect x="557.7" y="293" width="3.8" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
-<text  x="560.69" y="303.5" ></text>
+<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (297 samples, 3.79%)</title><rect x="469.5" y="229" width="44.7" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
+<text  x="472.51" y="239.5" >1brc..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.02%)</title><rect x="13.3" y="309" width="0.3" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
-<text  x="16.33" y="319.5" ></text>
+<title>1brc`std::basic_format_context&lt;std::back_insert_iterator&lt;std::__format::__output_buffer&lt;char&gt;&gt;,.char&gt;::iterator (1 samples, 0.01%)</title><rect x="1171.0" y="245" width="0.2" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="1174.04" y="255.5" ></text>
 </g>
 <g >
-<title>dyld`dyld4::Loader::resolveSymbol(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.02%)</title><rect x="1188.7" y="229" width="0.2" height="15.0" fill="rgb(209,22,5)" rx="2" ry="2" />
-<text  x="1191.67" y="239.5" ></text>
+<title>1brc`??? (157 samples, 2.00%)</title><rect x="827.3" y="293" width="23.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="830.27" y="303.5" >1..</text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="309" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="319.5" ></text>
+<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (11 samples, 0.14%)</title><rect x="370.8" y="277" width="1.6" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
+<text  x="373.77" y="287.5" ></text>
 </g>
 <g >
-<title>1brc`??? (8 samples, 0.15%)</title><rect x="18.4" y="341" width="1.8" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="21.44" y="351.5" ></text>
+<title>1brc`boost::unordered::detail::foa::mulx_mix::mix&lt;KeyHash,.std::basic_string_view&lt;char&gt;&gt;(KeyHash (727 samples, 9.27%)</title><rect x="421.6" y="309" width="109.5" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
+<text  x="424.65" y="319.5" >1brc`boost::u..</text>
 </g>
 <g >
-<title>dyld`dyld4::Loader::forEachBindTarget(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.02%)</title><rect x="1188.7" y="341" width="0.2" height="15.0" fill="rgb(210,26,6)" rx="2" ry="2" />
-<text  x="1191.67" y="351.5" ></text>
+<title>dyld`start (7,715 samples, 98.41%)</title><rect x="10.0" y="389" width="1161.2" height="15.0" fill="rgb(217,57,13)" rx="2" ry="2" />
+<text  x="13.00" y="399.5" >dyld`start</text>
 </g>
 <g >
-<title>1brc`std::basic_string&lt;char&gt;::__get_short_size[abi:ne200100]().const (18 samples, 0.34%)</title><rect x="720.0" y="277" width="4.0" height="15.0" fill="rgb(226,98,23)" rx="2" ry="2" />
-<text  x="723.04" y="287.5" ></text>
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::pow2_quadratic_prober::get().const (12 samples, 0.15%)</title><rect x="112.5" y="325" width="1.8" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="115.50" y="335.5" ></text>
 </g>
 <g >
-<title>libSystem.B`libSystem_initializer (1 samples, 0.02%)</title><rect x="1188.4" y="213" width="0.3" height="15.0" fill="rgb(230,117,28)" rx="2" ry="2" />
-<text  x="1191.45" y="223.5" ></text>
+<title>dyld`open (1 samples, 0.01%)</title><rect x="1189.2" y="261" width="0.2" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
+<text  x="1192.25" y="271.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (50 samples, 0.94%)</title><rect x="562.8" y="325" width="11.1" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
-<text  x="565.80" y="335.5" ></text>
+<title>dyld`dyld3::open(char.const*, (1 samples, 0.01%)</title><rect x="1189.2" y="293" width="0.2" height="15.0" fill="rgb(223,85,20)" rx="2" ry="2" />
+<text  x="1192.25" y="303.5" ></text>
 </g>
 <g >
-<title>dyld`invocation.function (1 samples, 0.02%)</title><rect x="1188.7" y="101" width="0.2" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
-<text  x="1191.67" y="111.5" ></text>
+<title>1brc`DYLD-STUB$$boost::empty_::empty_value&lt;std::equal_to&lt;void&gt;,.1u, (34 samples, 0.43%)</title><rect x="405.5" y="309" width="5.2" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
+<text  x="408.54" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`std::__format::__handle_replacement_field[abi:ne200100]&lt;char.const*, (1 samples, 0.02%)</title><rect x="1168.5" y="165" width="0.2" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
-<text  x="1171.46" y="175.5" ></text>
+<title>dyld`dyld4::ExternallyViewableState::triggerNotifications(dyld_image_mode,.unsigned (12 samples, 0.15%)</title><rect x="1187.3" y="357" width="1.8" height="15.0" fill="rgb(233,131,31)" rx="2" ry="2" />
+<text  x="1190.29" y="367.5" ></text>
 </g>
 <g >
-<title>1brc`std::basic_string_view&lt;char&gt;::basic_string_view[abi:ne200100](std::basic_string_view&lt;char&gt;::__assume_valid,.char (332 samples, 6.25%)</title><rect x="730.9" y="293" width="73.8" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
-<text  x="733.93" y="303.5" >1brc`std..</text>
+<title>1brc`decltype(fp0(nullptr),.(void)()) (1 samples, 0.01%)</title><rect x="13.0" y="197" width="0.2" height="15.0" fill="rgb(233,132,31)" rx="2" ry="2" />
+<text  x="16.01" y="207.5" ></text>
 </g>
 <g >
-<title>1brc`std::__print::__vprint_unicode_posix[abi:ne200100]&lt;void&gt;(__sFILE*,.std::basic_string_view&lt;char&gt;, (1 samples, 0.02%)</title><rect x="1168.5" y="293" width="0.2" height="15.0" fill="rgb(249,203,48)" rx="2" ry="2" />
-<text  x="1171.46" y="303.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="309" width="0.2" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="16.01" y="319.5" ></text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::unchecked_countr_zero(int) (6 samples, 0.11%)</title><rect x="573.9" y="325" width="1.3" height="15.0" fill="rgb(253,225,53)" rx="2" ry="2" />
-<text  x="576.90" y="335.5" ></text>
+<title>1brc`decltype(type_policy::extract(fp)).boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;, (53 samples, 0.68%)</title><rect x="953.7" y="325" width="8.0" height="15.0" fill="rgb(228,106,25)" rx="2" ry="2" />
+<text  x="956.70" y="335.5" ></text>
 </g>
 <g >
-<title>1brc`??? (1 samples, 0.02%)</title><rect x="1168.5" y="149" width="0.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="1171.46" y="159.5" ></text>
+<title>1brc`DYLD-STUB$$std::pair&lt;std::basic_string&lt;char&gt;.const, (17 samples, 0.22%)</title><rect x="554.4" y="293" width="2.6" height="15.0" fill="rgb(215,48,11)" rx="2" ry="2" />
+<text  x="557.40" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`??? (113 samples, 2.13%)</title><rect x="624.5" y="309" width="25.1" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
-<text  x="627.54" y="319.5" >1..</text>
+<title>1brc`boost::unordered::detail::mulx(unsigned.long) (102 samples, 1.30%)</title><rect x="515.7" y="293" width="15.4" height="15.0" fill="rgb(251,211,50)" rx="2" ry="2" />
+<text  x="518.71" y="303.5" ></text>
 </g>
 <g >
-<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::operator==(boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (9 samples, 0.17%)</title><rect x="118.8" y="325" width="2.0" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
-<text  x="121.83" y="335.5" ></text>
+<title>1brc`??? (148 samples, 1.89%)</title><rect x="677.1" y="293" width="22.2" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="680.06" y="303.5" >1..</text>
 </g>
 <g >
-<title>1brc`boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (57 samples, 1.07%)</title><rect x="333.8" y="309" width="12.7" height="15.0" fill="rgb(232,126,30)" rx="2" ry="2" />
-<text  x="336.82" y="319.5" ></text>
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1,010 samples, 12.88%)</title><rect x="392.0" y="325" width="152.0" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="394.99" y="335.5" >1brc`boost::unorder..</text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::operator==(boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (12 samples, 0.15%)</title><rect x="110.7" y="325" width="1.8" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
+<text  x="113.69" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`invocation.function (1 samples, 0.01%)</title><rect x="1189.1" y="261" width="0.1" height="15.0" fill="rgb(215,47,11)" rx="2" ry="2" />
+<text  x="1192.10" y="271.5" ></text>
+</g>
+<g >
+<title>1brc`std::invoke_result&lt;char.const*, (1 samples, 0.01%)</title><rect x="1171.0" y="197" width="0.2" height="15.0" fill="rgb(246,188,45)" rx="2" ry="2" />
+<text  x="1174.04" y="207.5" ></text>
+</g>
+<g >
+<title>Thread_2376588.DispatchQueue_1: (7,715 samples, 98.41%)</title><rect x="10.0" y="405" width="1161.2" height="15.0" fill="rgb(238,153,36)" rx="2" ry="2" />
+<text  x="13.00" y="415.5" >Thread_2376588.DispatchQueue_1:</text>
+</g>
+<g >
+<title>dyld`dyld4::RemoteNotificationResponder::sendMessage(int,.unsigned (12 samples, 0.15%)</title><rect x="1187.3" y="325" width="1.8" height="15.0" fill="rgb(220,73,17)" rx="2" ry="2" />
+<text  x="1190.29" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::JustInTimeLoader::applyFixups(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.01%)</title><rect x="1189.1" y="357" width="0.1" height="15.0" fill="rgb(224,88,21)" rx="2" ry="2" />
+<text  x="1192.10" y="367.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*.boost::to_address&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;&gt;(boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;*) (7 samples, 0.09%)</title><rect x="387.9" y="309" width="1.1" height="15.0" fill="rgb(220,72,17)" rx="2" ry="2" />
+<text  x="390.93" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (1 samples, 0.01%)</title><rect x="13.0" y="325" width="0.2" height="15.0" fill="rgb(242,170,40)" rx="2" ry="2" />
+<text  x="16.01" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`mach_msg_overwrite (12 samples, 0.15%)</title><rect x="1187.3" y="309" width="1.8" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
+<text  x="1190.29" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (19 samples, 0.24%)</title><rect x="548.7" y="309" width="2.8" height="15.0" fill="rgb(228,105,25)" rx="2" ry="2" />
+<text  x="551.68" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::to_pointer&lt;unsigned.char*&gt;(unsigned (30 samples, 0.38%)</title><rect x="372.4" y="277" width="4.5" height="15.0" fill="rgb(243,179,42)" rx="2" ry="2" />
+<text  x="375.43" y="287.5" ></text>
+</g>
+<g >
+<title>1brc`decltype(std::forward&lt;std::basic_string_view&lt;char&gt;.const&amp;&gt;(fp) (2,351 samples, 29.99%)</title><rect x="599.8" y="325" width="353.9" height="15.0" fill="rgb(250,211,50)" rx="2" ry="2" />
+<text  x="602.85" y="335.5" >1brc`decltype(std::forward&lt;std::basic_string_vi..</text>
+</g>
+<g >
+<title>libc++.1`std::_Floating_to_chars_fixed_precision[abi:ne200100]&lt;double&gt;(char*,.char*, (1 samples, 0.01%)</title><rect x="1171.0" y="53" width="0.2" height="15.0" fill="rgb(249,203,48)" rx="2" ry="2" />
+<text  x="1174.04" y="63.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::pow2_size_policy::position(unsigned.long, (27 samples, 0.34%)</title><rect x="536.6" y="293" width="4.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
+<text  x="539.64" y="303.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::reduced_hash(unsigned.long) (18 samples, 0.23%)</title><rect x="167.9" y="309" width="2.7" height="15.0" fill="rgb(247,195,46)" rx="2" ry="2" />
+<text  x="170.89" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (209 samples, 2.67%)</title><rect x="568.4" y="325" width="31.4" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
+<text  x="571.39" y="335.5" >1b..</text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;::load_metadata().const (36 samples, 0.46%)</title><rect x="177.1" y="309" width="5.4" height="15.0" fill="rgb(218,62,14)" rx="2" ry="2" />
+<text  x="180.07" y="319.5" ></text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (45 samples, 0.57%)</title><rect x="124.2" y="325" width="6.8" height="15.0" fill="rgb(228,108,25)" rx="2" ry="2" />
+<text  x="127.24" y="335.5" ></text>
+</g>
+<g >
+<title>1brc`std::print[abi:ne200100]&lt;std::basic_string&lt;char&gt;&amp;,.double, (1 samples, 0.01%)</title><rect x="1171.0" y="341" width="0.2" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
+<text  x="1174.04" y="351.5" ></text>
+</g>
+<g >
+<title>1brc`parse_value(char.const*) (140 samples, 1.79%)</title><rect x="1149.8" y="341" width="21.1" height="15.0" fill="rgb(251,216,51)" rx="2" ry="2" />
+<text  x="1152.81" y="351.5" ></text>
+</g>
+<g >
+<title>Thread_2376588:.Main (125 samples, 1.59%)</title><rect x="1171.2" y="405" width="18.8" height="15.0" fill="rgb(216,54,12)" rx="2" ry="2" />
+<text  x="1174.19" y="415.5" ></text>
+</g>
+<g >
+<title>1brc`decltype(auto).std::__visit_format_arg[abi:ne200100]&lt;char (1 samples, 0.01%)</title><rect x="1171.0" y="213" width="0.2" height="15.0" fill="rgb(225,95,22)" rx="2" ry="2" />
+<text  x="1174.04" y="223.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.01%)</title><rect x="13.0" y="357" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
+<text  x="16.01" y="367.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::RemoteNotificationResponder::sendMessage(int,.unsigned (4 samples, 0.05%)</title><rect x="1189.4" y="293" width="0.6" height="15.0" fill="rgb(220,73,17)" rx="2" ry="2" />
+<text  x="1192.40" y="303.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::Loader::getOnDiskBinarySliceOffset(dyld4::RuntimeState&amp;,.dyld3::MachOFile (1 samples, 0.01%)</title><rect x="1189.2" y="341" width="0.2" height="15.0" fill="rgb(207,12,2)" rx="2" ry="2" />
+<text  x="1192.25" y="351.5" ></text>
+</g>
+<g >
+<title>1brc`std::__formatter::__format_buffer[abi:ne200100]&lt;double,.double&gt;(std::__formatter::__float_buffer&lt;double&gt;&amp;, (1 samples, 0.01%)</title><rect x="1171.0" y="117" width="0.2" height="15.0" fill="rgb(216,53,12)" rx="2" ry="2" />
+<text  x="1174.04" y="127.5" ></text>
+</g>
+<g >
+<title>1brc`??? (77 samples, 0.98%)</title><rect x="96.8" y="325" width="11.6" height="15.0" fill="rgb(246,192,46)" rx="2" ry="2" />
+<text  x="99.84" y="335.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_locator&lt;boost::unordered::detail::foa::group15&lt;boost::unordered::detail::foa::plain_integral&gt;,.std::pair&lt;std::basic_string&lt;char&gt; (60 samples, 0.77%)</title><rect x="558.0" y="325" width="9.0" height="15.0" fill="rgb(234,135,32)" rx="2" ry="2" />
+<text  x="561.01" y="335.5" ></text>
+</g>
+<g >
+<title>1brc`std::__loadword[abi:ne200100]&lt;unsigned.int&gt;(void (32 samples, 0.41%)</title><rect x="494.5" y="213" width="4.8" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
+<text  x="497.49" y="223.5" ></text>
+</g>
+<g >
+<title>1brc`std::basic_string_view&lt;char&gt;::basic_string_view[abi:ne200100](std::basic_string_view&lt;char&gt;::__assume_valid,.char (542 samples, 6.91%)</title><rect x="730.9" y="293" width="81.6" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
+<text  x="733.94" y="303.5" >1brc`std:..</text>
+</g>
+<g >
+<title>dyld`mach_msg2_trap (4 samples, 0.05%)</title><rect x="1189.4" y="245" width="0.6" height="15.0" fill="rgb(231,121,29)" rx="2" ry="2" />
+<text  x="1192.40" y="255.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::SyscallDelegate::withReadOnlyMappedFile(Diagnostics&amp;,.char (1 samples, 0.01%)</title><rect x="1189.2" y="325" width="0.2" height="15.0" fill="rgb(235,139,33)" rx="2" ry="2" />
+<text  x="1192.25" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::Loader::resolveSymbol(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.01%)</title><rect x="1189.1" y="229" width="0.1" height="15.0" fill="rgb(209,22,5)" rx="2" ry="2" />
+<text  x="1192.10" y="239.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::operator==(boost::unordered::detail::foa::table_iterator&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (104 samples, 1.33%)</title><rect x="310.0" y="325" width="15.6" height="15.0" fill="rgb(214,42,10)" rx="2" ry="2" />
+<text  x="312.97" y="335.5" ></text>
+</g>
+<g >
+<title>dyld`mach_msg2_trap (12 samples, 0.15%)</title><rect x="1187.3" y="277" width="1.8" height="15.0" fill="rgb(231,121,29)" rx="2" ry="2" />
+<text  x="1190.29" y="287.5" ></text>
+</g>
+<g >
+<title>1brc`std::basic_string_view&lt;char&gt;::basic_string_view[abi:ne200100](std::basic_string_view&lt;char&gt;::__assume_valid,.char (255 samples, 3.25%)</title><rect x="774.1" y="277" width="38.4" height="15.0" fill="rgb(206,8,2)" rx="2" ry="2" />
+<text  x="777.14" y="287.5" >1br..</text>
+</g>
+<g >
+<title>1brc`boost::unordered::detail::foa::table_core&lt;boost::unordered::detail::foa::flat_map_types&lt;std::basic_string&lt;char&gt;,.WeatherStation&gt;, (6 samples, 0.08%)</title><rect x="962.0" y="341" width="0.9" height="15.0" fill="rgb(232,128,30)" rx="2" ry="2" />
+<text  x="964.98" y="351.5" ></text>
+</g>
+<g >
+<title>dyld`dyld4::Loader::hasExportedSymbol(Diagnostics&amp;,.dyld4::RuntimeState&amp;, (1 samples, 0.01%)</title><rect x="1189.1" y="197" width="0.1" height="15.0" fill="rgb(234,134,32)" rx="2" ry="2" />
+<text  x="1192.10" y="207.5" ></text>
+</g>
+<g >
+<title>1brc`boost::unordered::unordered_flat_map&lt;std::basic_string&lt;char&gt;,.WeatherStation, (1 samples, 0.01%)</title><rect x="13.0" y="341" width="0.2" height="15.0" fill="rgb(250,209,50)" rx="2" ry="2" />
+<text  x="16.01" y="351.5" ></text>
+</g>
+<g >
+<title>1brc`std::__do_string_hash[abi:ne200100]&lt;char.const*&gt;(char (414 samples, 5.28%)</title><rect x="451.9" y="261" width="62.3" height="15.0" fill="rgb(249,203,48)" rx="2" ry="2" />
+<text  x="454.90" y="271.5" >1brc`s..</text>
+</g>
+<g >
+<title>1brc`DYLD-STUB$$KeyHash::operator()(std::basic_string_view&lt;char&gt;).const (8 samples, 0.10%)</title><rect x="426.8" y="293" width="1.2" height="15.0" fill="rgb(234,136,32)" rx="2" ry="2" />
+<text  x="429.76" y="303.5" ></text>
+</g>
+<g >
+<title>1brc`std::__murmur2_or_cityhash&lt;unsigned.long, (10 samples, 0.13%)</title><rect x="514.2" y="261" width="1.5" height="15.0" fill="rgb(222,81,19)" rx="2" ry="2" />
+<text  x="517.21" y="271.5" ></text>
 </g>
 </g>
 </svg>

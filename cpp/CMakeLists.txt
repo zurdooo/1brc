@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 3.25)
 project(1brc CXX)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 set(CMAKE_CXX_STANDARD 23)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
@@ -30,6 +32,7 @@ target_compile_options(1brc PRIVATE
     $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:
     -Wall -Wextra -Wpedantic
     -O0 -g
+
     # $<$<CONFIG:Release>:-O3 -march=native>
     # $<$<CONFIG:Debug>:-g -O0>
     >

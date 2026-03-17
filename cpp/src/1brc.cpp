@@ -81,7 +81,6 @@ struct MMapFile
 MMapFile mmap_file()
 {
     auto t0 = std::chrono::high_resolution_clock::now();
-    std::println("Starting mmap");
 
     // Parse file into map
     const char *path = "../measurements.txt";
@@ -133,15 +132,30 @@ MMapFile mmap_file()
     auto t4 = std::chrono::high_resolution_clock::now();
     std::println("madvise() time: {:.6f} seconds",
                  std::chrono::duration<double>(t4 - t3).count());
-    std::println("Ended mmap");
 
     // Return mmap struct
     return {fd, size, static_cast<const char *>(ptr)};
 }
 
+/// Finds the semicolon in a line as well as the new line character
+/// By Finding the new line first we can easily find the rest of the pointers necessary
+/// returns the number found, and the pointers to the semicolon and new line
+std::tuple<int_fast32_t, const char *, const char *> parse_value_sc_nl(const char *line_start)
+{
+
+    const char *&sc = nullptr;
+    const char *&nl = nullptr;
+
+    // std::memchr();
+
+        std::println("start={} sc={} nl={}", static_cast<const void *>(line_start), static_cast<const void *>(sc), static_cast<const void *>(nl));
+
+    return std::tuple{0, nullptr, nullptr};
+}
+
 // TODO: we can search after the ; by looking for a . as we know how many chars are left at this point
 /// @brief Takes in the start of line and the end, modifies the semicolon and new line pointers
-void find_sep_and_new_line(const char *line_start, size_t remaining, const char *&sc, const char *&nl)
+void find_sep_and_new_line(const char *line_start, const char *&sc, const char *&nl)
 {
     const char *p = line_start;
     sc = nullptr;
@@ -149,7 +163,7 @@ void find_sep_and_new_line(const char *line_start, size_t remaining, const char 
 
     // Every word is at least two chars long
     p += 2; // ?
-    while (p < end)
+    while (true)
     {
         if (*p == ';')
         {
@@ -165,6 +179,10 @@ void find_sep_and_new_line(const char *line_start, size_t remaining, const char 
         }
         ++p;
     }
+
+    // std::println("End of loop: line_start={}, p={}",
+    //              static_cast<const void *>(line_start),
+    //              static_cast<const void *>(p));
 }
 
 // sc : Type Pointer to a line in memory
@@ -222,7 +240,7 @@ void aggregate(const char *data, size_t pos, const char *sc, double value, Stati
     ws.count++;
 }
 
-// TODO: Fix the inputs to the other functions
+// TODO: Fix the logic/variable names
 /// @brief function to parse the file and create the hashmap with all the values,
 /// @return Returns the hashmap
 StationMap create_weather_station_map()
@@ -239,7 +257,7 @@ StationMap create_weather_station_map()
 
     std::println("Ended mmap");
 
-    const char *data = mapped.data;
+    const char *first_ptr = mapped.data;
     const size_t size = mapped.size;
 
     auto read_end = std::chrono::high_resolution_clock::now();
@@ -257,28 +275,28 @@ StationMap create_weather_station_map()
 
     // TEMP: Added this to limit the iterations
     int row_count = 0;
-    const int MAX_ROWS = 20000000;
+    const int MAX_ROWS = 10;
 
     // TEMP: Removed limit
     while (pos < size && row_count < MAX_ROWS)
     {
-        find_sep_and_new_line(data + pos, size - pos, sc, nl);
+        find_sep_and_new_line(first_ptr + pos, sc, nl);
 
         // Number is contained after semicolon
         double value = parse_value(sc);
 
-        aggregate(data, pos, sc, value, weather_stations);
+        aggregate(first_ptr, pos, sc, value, weather_stations);
 
         if (!nl)
             break; // no newline, done
 
         // Update to next line
-        pos = (nl - data) + 1;
+        pos = (nl - first_ptr) + 1;
 
         row_count++;
     }
 
-    ::munmap(const_cast<char *>(data), size);
+    ::munmap(const_cast<char *>(first_ptr), size);
     ::close(mapped.fd);
 
     return weather_stations;
@@ -306,9 +324,9 @@ void output_stations(const StationMap &map)
         // Print to 1 decimal place
         std::print("{}={:.1f}/{:.1f}/{:.1f}",
                    keys[i],
-                   ws.min / 10.0,
-                   mean,
-                   ws.max / 10.0);
+                   static_cast<double>(ws.min) / 10.0,
+                   mean / 10.0,
+                   static_cast<double>(ws.max) / 10.0);
 
         // Print comma separator if not the last element
         if (i + 1 < keys.size())
