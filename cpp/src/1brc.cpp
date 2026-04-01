@@ -25,7 +25,7 @@ TODO LIST
 - Think about the memory pattern optimize a single query then optimize the loop
 */
 
-#include <print>
+#include <cstdio>
 #include <unordered_map> // Fallback if Boost is not configured in your IDE/CMake
 // TODO: Uncomment once boost is available
 // #include <boost/unordered/unordered_flat_map.hpp>
@@ -96,8 +96,8 @@ MMapFile mmap_file()
     }
 
     auto t1 = std::chrono::high_resolution_clock::now();
-    std::println("open() time: {:.6f} seconds",
-                 std::chrono::duration<double>(t1 - t0).count());
+    printf("open() time: %.6f seconds\n",
+           std::chrono::duration<double>(t1 - t0).count());
 
     // Get file size
     struct stat st{};
@@ -109,8 +109,8 @@ MMapFile mmap_file()
     }
 
     auto t2 = std::chrono::high_resolution_clock::now();
-    std::println("fstat() time: {:.6f} seconds",
-                 std::chrono::duration<double>(t2 - t1).count());
+    printf("fstat() time: %.6f seconds\n",
+           std::chrono::duration<double>(t2 - t1).count());
 
     const size_t size = static_cast<size_t>(st.st_size);
     if (size == 0)
@@ -133,8 +133,8 @@ MMapFile mmap_file()
     }
 
     auto t3 = std::chrono::high_resolution_clock::now();
-    std::println("mmap() time: {:.6f} seconds",
-                 std::chrono::duration<double>(t3 - t2).count());
+    printf("mmap() time: %.6f seconds\n",
+           std::chrono::duration<double>(t3 - t2).count());
 
     // Return mmap struct
     return {fd, size, static_cast<const char *>(ptr)};
@@ -232,7 +232,7 @@ void add_station(const char *line_start, const char *sc, StationMap &weather_sta
 /// @return Returns the hashmap
 StationMap create_weather_station_map()
 {
-    std::println("Starting mmap");
+    printf("Starting mmap\n");
     auto start = std::chrono::high_resolution_clock::now();
 
     // Read file into memory
@@ -242,14 +242,14 @@ StationMap create_weather_station_map()
         return {};
     }
 
-    std::println("Ended mmap");
+    printf("Ended mmap\n");
 
     const char *first_ptr = mapped.data;
     const size_t size = mapped.size;
 
     auto read_end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> read_time = read_end - start;
-    std::println("File read time: {:.6f} seconds", read_time.count());
+    printf("File read time: %.6f seconds\n", read_time.count());
 
     // Reserve 10000 slots for our unique stations
     StationMap weather_stations{};
@@ -305,7 +305,7 @@ void output_stations(const StationMap &map)
     std::sort(keys.begin(), keys.end());
 
     // Output
-    std::print("{{");
+    printf("{");
     for (size_t i = 0; i < keys.size(); ++i)
     {
         // TODO: Fix this?
@@ -313,23 +313,23 @@ void output_stations(const StationMap &map)
         double mean = ws.total / ws.count;
 
         // Print to 1 decimal place
-        std::print("{}={:.1f}/{:.1f}/{:.1f}",
-                   keys[i],
+        printf("%s=%.1f/%.1f/%.1f",
+                   keys[i].c_str(),
                    static_cast<double>(ws.min) / 10.0,
                    mean / 10.0,
                    static_cast<double>(ws.max) / 10.0);
 
         // Print comma separator if not the last element
         if (i + 1 < keys.size())
-            std::print(", ");
+            printf(", ");
     }
     // Print closing brace, }}
-    std::println("}}");
+    printf("}\n");
 }
 
 int main()
 {
-    std::println("Starting 1brc program");
+    printf("Starting 1brc program\n");
 
     auto start = std::chrono::high_resolution_clock::now();
 
@@ -338,15 +338,15 @@ int main()
 
     auto created_map = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> map_creation_time = created_map - start;
-    std::println("Map creation/parsing time: {:.6f} seconds", map_creation_time.count());
+    printf("Map creation/parsing time: %.6f seconds\n", map_creation_time.count());
 
     // Pass hashmap into output function
     output_stations(weather_stations);
 
     auto end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed = end - start;
-    std::println("Total elapsed time: {:.6f} seconds", elapsed.count());
+    printf("Total elapsed time: %.6f seconds\n", elapsed.count());
 
-    std::println("Finished 1brc program");
+    printf("Finished 1brc program\n");
     return 0;
 }
