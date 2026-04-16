@@ -23,6 +23,8 @@ TODO LIST
 - Fix the parsing function use the simd instructions
 - Use simple/small objects in datastructures only use what we need
 - Think about the memory pattern optimize a single query then optimize the loop
+
+- Lets switch to std::span when we have a ptr and size together
 */
 
 #include <print>
@@ -76,6 +78,69 @@ struct MMapFile
     int fd = -1;
     size_t size = 0;
     const char *data = nullptr;
+
+    // Default constructor, creates an empty MMapFile
+    MMapFile() = default;
+
+    // Constructor to initialize the MMapFile with given values
+    MMapFile(int fd_in, size_t size_in, const char *data_in)
+        : fd(fd_in), size(size_in), data(data_in)
+    {
+    }
+
+    // Destructor to clean up resources, automatically called when MMapFile goes out of scope
+    ~MMapFile()
+    {
+        if (data != nullptr)
+        {
+            ::munmap(const_cast<char *>(data), size);
+        }
+        if (fd >= 0)
+        {
+            ::close(fd);
+        }
+    }
+
+    // Delete copy constructor and copy assignment operator to prevent copying of MMapFile instances, since they manage resources that should not be duplicated
+    MMapFile(const MMapFile &) = delete;            // Dont allow the copy constructor so MmapFile a = b is not allowed
+    MMapFile &operator=(const MMapFile &) = delete; // Dont allow the copy assignment operator so MmapFile a; a = b is not allowed
+
+    // Allowing us to move MMapFile instances, transferring ownership of the resources without copying
+    MMapFile(MMapFile &&other) noexcept
+        : fd(other.fd), size(other.size), data(other.data)
+    {
+        other.fd = -1;
+        other.size = 0;
+        other.data = nullptr;
+    }
+
+    // Move assignment operator to transfer ownership of resources from one MMapFile instance to another, ensuring proper cleanup of existing resources before taking ownership of the new ones
+    // Make sure we have unique ownership
+    MMapFile &operator=(MMapFile &&other) noexcept
+    {
+        if (this == &other)
+        {
+            return *this;
+        }
+
+        if (data != nullptr)
+        {
+            ::munmap(const_cast<char *>(data), size);
+        }
+        if (fd >= 0)
+        {
+            ::close(fd);
+        }
+
+        fd = other.fd;
+        size = other.size;
+        data = other.data;
+
+        other.fd = -1;
+        other.size = 0;
+        other.data = nullptr;
+        return *this;
+    }
 };
 
 /// @brief mmaps "measurements.txt" and gets a pointer to the data
@@ -122,9 +187,6 @@ MMapFile mmap_file()
     // Call mmap and get the pointer to the data
     void *ptr = ::mmap(nullptr, size, PROT_READ, MAP_PRIVATE, fd, 0);
 
-    // Close file now that we have the data
-    ::close(fd);
-
     if (ptr == MAP_FAILED)
     {
         std::perror("mmap");
@@ -136,6 +198,7 @@ MMapFile mmap_file()
     std::println("mmap() time: {:.6f} seconds",
                  std::chrono::duration<double>(t3 - t2).count());
 
+    // TODO: Switch to std span
     // Return mmap struct
     return {fd, size, static_cast<const char *>(ptr)};
 }
@@ -171,6 +234,9 @@ int_fast32_t parse_value(const char *sc)
 }
 
 /// @brief Finds the semicolon in a line as well as the new line character
+/// @param line_start Pointer to the start of the line
+/// @param out_sc Output pointer to the semicolon, gets set during execution, passed by reference
+/// @param out_nl Output pointer to the newline character, gets set during execution, passed by reference
 /// @brief Output variables are passed by reference, the sc and nl ptrs are returned
 void parse_sc_nl(const char *line_start, const char *&out_sc, const char *&out_nl)
 {
@@ -200,6 +266,9 @@ void parse_sc_nl(const char *line_start, const char *&out_sc, const char *&out_n
 }
 
 /// @brief Adds a station to the weather stations map
+/// @param line_start Pointer to the start of the line, used to extract the station name
+/// @param sc Pointer to the semicolon in the line, used to extract the temperature value
+/// @param weather_stations The map of weather stations to update with the new station data
 void add_station(const char *line_start, const char *sc, StationMap &weather_stations)
 {
     int_fast32_t value = parse_value(sc);
@@ -264,10 +333,10 @@ StationMap create_weather_station_map()
 
     int row_count = 0;
     // TEMP: Added this to limit the iterations
-    const int MAX_ROWS = 10000000;
+    const int MAX_ROWS = 100000000;
 
     // TEMP: Removed limit
-    while (pos < size)
+    while (pos < size && row_count < MAX_ROWS)
     {
         // Find value and add stations
         parse_sc_nl(first_ptr + pos, sc, nl);
@@ -282,9 +351,6 @@ StationMap create_weather_station_map()
 
         row_count++;
     }
-
-    ::munmap(const_cast<char *>(first_ptr), size);
-    ::close(mapped.fd);
 
     return weather_stations;
 }
