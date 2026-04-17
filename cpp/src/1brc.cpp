@@ -18,19 +18,14 @@ aggregate, and retrieve the results per station.
 access value by name if not present, append to total, add 1 to struct count
 
 TODO LIST
-- Do i need such a complicated hash?
-- Only 100000 unique stations how can we optimize from here
-- Fix the parsing function use the simd instructions
-- Use simple/small objects in datastructures only use what we need
-- Think about the memory pattern optimize a single query then optimize the loop
-
 - Lets switch to std::span when we have a ptr and size together
+- Implement custom hashmap with linear probing and transparent key lookup
+- Add thread logic, split the file into N parts and have each thread process a part, then aggregate results at the end
+- MAYBE: Implement a better parsing function
 */
 
 #include <print>
 #include <unordered_map> // Fallback if Boost is not configured in your IDE/CMake
-// TODO: Uncomment once boost is available
-// #include <boost/unordered/unordered_flat_map.hpp>
 #include <string>
 #include <vector>
 #include <algorithm>
@@ -44,7 +39,6 @@ TODO LIST
 #include <chrono>
 #include <span>
 
-// TODO: Fix the hashing and storing of keys
 /// Hash to use with transparent key lookup in unordered_map, allows for efficient lookup using stringview and only allocate key once
 struct KeyHash
 {
@@ -61,18 +55,16 @@ struct KeyHash
     }
 };
 
-// TODO: Change doubles maybe? change to ints since we only have 1 decimal place,
-// TODO: treat 1.2 as 12 and then when outputting add a decimal
 /// @brief Represents the weather station found in "measurements.txt"
 struct WeatherStation
 {
-    int_fast32_t min = 999;
-    int_fast32_t max = -999;
-    double total = 0.0;
+    int_fast16_t min = 999;
+    int_fast16_t max = -999;
+    int_fast64_t total = 0;
     int count = 0; // Total instances of measurements we read
 };
 
-// Alias for the weather station map — std::string keys so they own their data (safe after munmap)
+// Alias for the weather station map
 using StationMap = std::unordered_map<std::string, WeatherStation, KeyHash, std::equal_to<>>;
 
 /// @brief The return type for mmap, so we can cleanup memory after getting the data
@@ -206,137 +198,75 @@ MMapFile mmap_file()
     return {fd, size, static_cast<const char *>(ptr)};
 }
 
-/// @brief Parses the temperature value from a string
-/// @param sc Pointer to the semicolon in the line
-/// @return The parsed temperature value
-int_fast32_t parse_value(const char *sc)
+// @brief Parses the temperature value from a semicolon pointer and returns scaled int
+int_fast16_t parse_value(const char *sc)
 {
     const char *p = sc + 1; // skip semicolon
 
     // Check for neg
-    bool neg = (*p == '-');
-    if (neg)
-        ++p;
+    bool neg = false;
+    if (*p == '-')
+    {
+        neg = true;
+        ++p; // skip '-'
+    }
 
     int value = 0;
 
-    // Parse integer part
     while (*p != '.')
     {
         value = value * 10 + (*p - '0');
         ++p;
     }
 
-    ++p; // skip '.'
+    ++p;                             // skip '.'
+    value = value * 10 + (*p - '0'); // parse fractional digit
 
-    // Exactly one fractional digit
-    value = value * 10 + (*p - '0');
-
-    int_fast32_t result = value;
+    int_fast16_t result = value;
     return neg ? -result : result;
 }
 
-/// @brief Finds the semicolon in a line as well as the new line character
-/// @param line_start Pointer to the start of the line
-/// @param out_sc Output pointer to the semicolon, gets set during execution, passed by reference
-/// @param out_nl Output pointer to the newline character, gets set during execution, passed by reference
-/// @brief Output variables are passed by reference, the sc and nl ptrs are returned
-void parse_sc_nl(const char *line_start, const char *&out_sc, const char *&out_nl)
+// @brief Extracts the station name view from line start to semicolon pointer
+std::string_view parse_station(const char *line_start, const char *sc)
 {
+    return {line_start, static_cast<size_t>(sc - line_start)};
+}
 
+// @brief Parses a line using pointer arithmetic and advances iter to the next line
+// @param iter The pointer pointing to the current position in the data, passed by reference and updated during parsing
+// @param out_name Output parameter for the parsed station name, passed by reference and set during execution
+// @param out_value Output parameter for the parsed temperature value, passed by reference and set during execution
+void parse_line(const char *&iter, std::string_view &out_name, int_fast16_t &out_value)
+{
+    const char *line_start = iter;
+    const char *p = iter;
     const char *sc = nullptr;
-    const char *p = line_start;
 
-    // Every word is at least two chars long
-    p += 2; // ?
     while (true)
     {
         if (*p == ';')
         {
             sc = p;
-            out_sc = sc;
-            // After semicolon theres always at least three chars
-            p += 3;
+            p += 3; // after ';' there is always at least 3 chars
             continue;
         }
-        else if (*p == '\n')
+
+        if (*p == '\n')
         {
-            out_nl = p;
+            // Move iter to the start of the next line, which is after the newline character
+            iter = p + 1;
             break;
         }
+
         ++p;
     }
+
+    // Extract station name and value
+    out_name = parse_station(line_start, sc);
+    out_value = parse_value(sc);
 }
 
-/// @brief Adds a station to the weather stations map
-/// @param line_start Pointer to the start of the line, used to extract the station name
-/// @param sc Pointer to the semicolon in the line, used to extract the temperature value
-/// @param weather_stations The map of weather stations to update with the new station data
-void add_station(const char *line_start, const char *sc, StationMap &weather_stations)
-{
-    int_fast32_t value = parse_value(sc);
-    std::string_view name{line_start, static_cast<size_t>(sc - line_start)};
-
-    auto it = weather_stations.find(name);
-    if (it == weather_stations.end())
-    {
-        it = weather_stations.emplace(std::string(name), WeatherStation{}).first;
-    }
-
-    auto &ws = it->second;
-
-    if (value < ws.min)
-    {
-        ws.min = value;
-    }
-
-    if (value > ws.max)
-    {
-        ws.max = value;
-    }
-
-    ws.total += value;
-    ws.count++;
-}
-
-int_fast16_t new_parse_value(std::span<const char>::iterator &iter, const std::span<const char>::iterator end)
-{
-    if (iter == end)
-        return 0;
-
-    // Check for neg
-    bool neg = (*iter == '-');
-    if (neg)
-        ++iter;
-
-    int value = 0;
-
-    // Parse integer part
-    while (iter != end && *iter != '.')
-    {
-        value = value * 10 + (*iter - '0');
-        ++iter;
-    }
-
-    if (iter == end)
-        return neg ? -value : value;
-
-    ++iter; // skip '.'
-
-    if (iter == end)
-        return neg ? -value : value;
-
-    // Exactly one fractional digit
-    value = value * 10 + (*iter - '0');
-
-    int_fast16_t result = value;
-    ++iter; // Move iterator past the fractional digit
-    if (iter != end && *iter == '\n')
-        ++iter;
-    return neg ? -result : result;
-}
-
-void new_add_station(std::string_view name, int_fast32_t value, StationMap &weather_stations)
+void add_station(std::string_view name, int_fast16_t value, StationMap &weather_stations)
 {
     auto it = weather_stations.find(name);
     if (it == weather_stations.end())
@@ -347,148 +277,41 @@ void new_add_station(std::string_view name, int_fast32_t value, StationMap &weat
     auto &ws = it->second;
 
     if (value < ws.min)
-    {
         ws.min = value;
-    }
-
-    if (value > ws.max)
-    {
+    else if (value > ws.max)
         ws.max = value;
-    }
-
     ws.total += value;
     ws.count++;
 }
 
-std::string_view new_parse_station(std::span<const char>::iterator &iter, const std::span<const char>::iterator end)
+StationMap create_weather_station_map(MMapFile &mapped)
 {
-    if (iter == end)
-        return {};
-
-    if (*iter == '\n')
-        ++iter;
-
-    auto start = iter;
-    auto semi = std::find(iter, end, ';');
-    if (semi == end)
-    {
-        iter = end;
-        return {};
-    }
-
-    iter = semi + 1; // Move past the semicolon for the next parse
-    return {start.base(), semi.base()};
-}
-
-StationMap new_create_weather_station_map()
-{
-    std::println("Starting mmap");
-    auto start = std::chrono::high_resolution_clock::now();
-
-    // Read file into memory
-    MMapFile mapped = mmap_file();
-    if (mapped.data == nullptr || mapped.size == 0)
-    {
-        return {};
-    }
-
-    std::println("Ended mmap");
-
-    const std::span<const char> mapped_view{mapped.data, mapped.size};
-
-    auto read_end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> read_time = read_end - start;
-    std::println("File read time: {:.6f} seconds", read_time.count());
-
     // Reserve 10000 slots for our unique stations
     StationMap weather_stations{};
     weather_stations.reserve(10000);
 
-    auto iter = mapped_view.begin();
+    const char *iter = mapped.data;
+    const char *end = mapped.data + mapped.size;
 
     int row_count = 0;
+    int max_rows = 50000000; // TEMP: Added this to limit the iterations
 
-    while (iter != mapped_view.end() && row_count < 100000000)
+    // Variables we will use to store the parsed station name and value, passed by reference to the parsing function
+    std::string_view name;
+    int_fast16_t value;
+
+    while (iter < end)
     {
-        std::string_view name = new_parse_station(iter, mapped_view.end());
-        int_fast32_t value = new_parse_value(iter, mapped_view.end());
-        if (name.empty())
-            break;
-        new_add_station(name, value, weather_stations);
+        parse_line(iter, name, value);
 
-        row_count++;
+        add_station(name, value, weather_stations);
+
+        // row_count++;
     }
 
     return weather_stations;
 }
 
-
-// TODO: Fix the logic/variable names
-/// @brief function to parse the file and create the hashmap with all the values,
-/// @return Returns the hashmap
-StationMap create_weather_station_map()
-{
-    std::println("Starting mmap");
-    auto start = std::chrono::high_resolution_clock::now();
-
-    // Read file into memory
-    MMapFile mapped = mmap_file();
-    if (mapped.data == nullptr || mapped.size == 0)
-    {
-        return {};
-    }
-
-    std::println("Ended mmap");
-
-    const std::span<const char> mapped_view{mapped.data, mapped.size};
-    const char *first_ptr = mapped_view.data();
-    const size_t size = mapped_view.size();
-
-    auto read_end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> read_time = read_end - start;
-    std::println("File read time: {:.6f} seconds", read_time.count());
-
-    // Reserve 10000 slots for our unique stations
-    StationMap weather_stations{};
-    weather_stations.reserve(10000);
-
-    // pointers to the end of a line
-    const char *nl = nullptr;
-    const char *sc = nullptr;
-
-    // pointer to our current position, will point to the start of the current line
-    size_t pos = 0;
-
-    int row_count = 0;
-    // TEMP: Added this to limit the iterations
-    const int MAX_ROWS = 100000000;
-
-    // TEMP: Removed limit
-    while (pos < size && row_count < MAX_ROWS)
-    {
-        // Find value and add stations
-        parse_sc_nl(first_ptr + pos, sc, nl);
-        add_station(first_ptr + pos, sc, weather_stations);
-
-        if (!nl)
-            break; // no newline, done
-
-        // Update to next line, first_ptr gives the memory offset,
-        // add 1 to get past the new line char
-        pos = (nl - first_ptr) + 1;
-
-        row_count++;
-    }
-
-    return weather_stations;
-}
-
-
-// TODO: Add thread spawner
-
-// TODO: Add thread coordinator, aggregate thread results
-
-// TODO: use iterator instead of basic loop
 /// This function should take in the hashmap of all stations and output in the desired format to stdout
 void output_stations(const StationMap &map)
 {
@@ -505,7 +328,12 @@ void output_stations(const StationMap &map)
     {
         // TODO: Fix this?
         auto &ws = map.at(keys[i]);
-        double mean = ws.total / ws.count;
+        int64_t sum = ws.total;
+        if (sum > 0)
+            sum += ws.count / 2; // rounding
+        else
+            sum -= ws.count / 2;
+        double mean = static_cast<double>(sum / ws.count);
 
         // Print to 1 decimal place
         std::print("{}={:.1f}/{:.1f}/{:.1f}",
@@ -522,42 +350,26 @@ void output_stations(const StationMap &map)
     std::println("}}");
 }
 
-void test_new_funcs()
-{
-
-    auto start = std::chrono::high_resolution_clock::now();
-
-    // Parse file into sorted key hashmap
-    StationMap weather_stations = new_create_weather_station_map();
-
-    auto created_map = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> map_creation_time = created_map - start;
-    std::println("Map creation/parsing time: {:.6f} seconds", map_creation_time.count());
-
-    // Pass hashmap into output function
-    output_stations(weather_stations);
-
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    std::println("Total elapsed time: {:.6f} seconds", elapsed.count());
-
-    std::println("Finished 1brc program");
-}
-
 int main()
 {
-    bool test_new = true;
-    if (test_new)
-    {
-        test_new_funcs();
-        return 0;
-    }
-    std::println("Starting 1brc program");
-
     auto start = std::chrono::high_resolution_clock::now();
+    // Mmap file and get pointer to data
+    std::println("Starting mmap");
+
+    // Read file into memory
+    MMapFile mapped = mmap_file();
+    if (mapped.data == nullptr || mapped.size == 0)
+    {
+        return 1;
+    }
+
+    std::println("Ended mmap");
+    auto read_end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> read_time = read_end - start;
+    std::println("File read time: {:.6f} seconds", read_time.count());
 
     // Parse file into sorted key hashmap
-    StationMap weather_stations = create_weather_station_map();
+    StationMap weather_stations = create_weather_station_map(mapped);
 
     auto created_map = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> map_creation_time = created_map - start;

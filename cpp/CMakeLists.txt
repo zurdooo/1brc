@@ -19,19 +19,15 @@ endif()
 # List only the Boost components you actually use, e.g.:
 # find_package(Boost REQUIRED COMPONENTS program_options filesystem)
 # For header-only usage (e.g. boost/algorithm, boost/container) no component needed:
-find_package(Boost REQUIRED CONFIG)
 
 # ── Executable ───────────────────────────────────────────────────────────────
 add_executable(1brc src/1brc.cpp)
 
-# Link Boost — header-only (Boost::boost) is always available.
-# Add compiled components after Boost::boost as needed, e.g. Boost::program_options
-target_link_libraries(1brc PRIVATE Boost::boost)
 
 target_compile_options(1brc PRIVATE
     $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:
     -Wall -Wextra -Wpedantic
-    -O0 -g
+    -O3 -g
 
     # $<$<CONFIG:Release>:-O3 -march=native>
     # $<$<CONFIG:Debug>:-g -O0>

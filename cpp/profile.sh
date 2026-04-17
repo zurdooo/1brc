@@ -89,6 +89,6 @@ else
 	perf script -i "$PERF_DATA_FILE" | ./stackcollapse-perf.pl | ./flamegraph.pl > "$SVG_FILE"
 fi
 
-open_svg
+# open_svg
 
 echo "FlameGraph generated at: $SVG_FILE"
