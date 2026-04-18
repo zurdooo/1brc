@@ -333,6 +333,7 @@ std::string_view parse_station(const char *line_start, const char *sc)
     return {line_start, static_cast<size_t>(sc - line_start)};
 }
 
+// TODO: Compute hash while we iterate, so we dont parse over string more than once
 // @brief Parses a line using pointer arithmetic and advances iter to the next line
 // @param iter The pointer pointing to the current position in the data, passed by reference and updated during parsing
 // @param out_name Output parameter for the parsed station name, passed by reference and set during execution
