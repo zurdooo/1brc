@@ -58,11 +58,45 @@ struct KeyHash
 /// @brief Represents the weather station found in "measurements.txt"
 struct WeatherStation
 {
+    // * Added for hashmap parsing
+    const char *key; // Pointer to its name in mmap
+    uint_fast16_t len;    // Length of name
+
     int_fast16_t min = 999;
     int_fast16_t max = -999;
-    int_fast64_t total = 0;
-    int count = 0; // Total instances of measurements we read
+    uint_fast32_t total = 0;
+    uint_fast16_t count = 0; // Total instances of measurements we read
 };
+
+struct HashMan
+{
+    WeatherStation *stations;
+    uint32_t *hashes; // Stores the hash of a station key
+
+    uint_fast16_t capacity; // Power of 2
+    uint_fast16_t mask;     // Capacity - 1, for bitmasking instead of modulo operation
+
+    // TODO: Get or Create an entry, Lookup & Insert
+    // TODO: Update method if we have a hit instead of a creation
+    // TODO: Constructor/Setup
+    // Looks for value in table,
+    WeatherStation *get_or_create(const char *key, uint_fast16_t key_len, uint32_t key_hash)
+    {
+    }
+};
+
+// FNV-1a 32-bit hash function
+// Generate a deterministic integer hash of a byte seq
+static inline uint32_t FNVmanhash(const char *s, uint_fast8_t keylen)
+{
+    uint_fast32_t hash_number = 2166136261u; // FNV Hash number, good for distributions and stuff
+    for (int i = 0; i < keylen; i++)
+    {
+        hash_number ^= (uint8_t)s[i]; // Update byte into number-state
+        hash_number *= 16777619;      // Mix bits via multiplication (FNV prime) for avalanche effect
+    }
+    return hash_number;
+}
 
 // Alias for the weather station map
 using StationMap = std::unordered_map<std::string, WeatherStation, KeyHash, std::equal_to<>>;

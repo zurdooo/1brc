@@ -30,7 +30,7 @@ ensure_flamegraph_dir() {
 	fi
 
 	candidate="$CPP_DIR/FlameGraph"
-	echo "FlameGraph not found. Cloning into: $candidate"
+	echo "FlameGraph not found. Cloning into: $candidate" >&2
 	git clone https://github.com/brendangregg/FlameGraph.git "$candidate"
 	echo "$candidate"
 }
