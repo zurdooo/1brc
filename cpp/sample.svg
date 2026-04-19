@@ -1,6 +1,6 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<svg version="1.1" width="1200" height="358" onload="init(evt)" viewBox="0 0 1200 358" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg version="1.1" width="1200" height="438" onload="init(evt)" viewBox="0 0 1200 438" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <!-- Flame graph stack visualization. See https://github.com/brendangregg/FlameGraph for latest version, and http://www.brendangregg.com/flamegraphs.html for examples. -->
 <!-- NOTES:  -->
 <defs>
@@ -422,165 +422,381 @@
 	}
 ]]>
 </script>
-<rect x="0.0" y="0" width="1200.0" height="358.0" fill="url(#background)"  />
+<rect x="0.0" y="0" width="1200.0" height="438.0" fill="url(#background)"  />
 <text id="title" x="600.00" y="24" >Flame Graph</text>
-<text id="details" x="10.00" y="341" > </text>
+<text id="details" x="10.00" y="421" > </text>
 <text id="unzoom" x="10.00" y="24" class="hide">Reset Zoom</text>
 <text id="search" x="1090.00" y="24" >Search</text>
 <text id="ignorecase" x="1174.00" y="24" >ic</text>
-<text id="matched" x="1090.00" y="341" > </text>
+<text id="matched" x="1090.00" y="421" > </text>
 <g id="frames">
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="133" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="143.5" ></text>
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="165" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="175.5" ></text>
 </g>
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="197" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="207.5" ></text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::data (37,607,923 samples, 0.01%)</title><rect x="35.7" y="165" width="0.1" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="38.72" y="175.5" ></text>
 </g>
 <g >
-<title>parse_line (21,781,007,479 samples, 23.47%)</title><rect x="784.9" y="229" width="276.9" height="15.0" fill="rgb(228,110,26)" rx="2" ry="2" />
-<text  x="787.89" y="239.5" >parse_line</text>
+<title>[unknown] (150,556,946 samples, 0.03%)</title><rect x="998.4" y="69" width="0.4" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.41" y="79.5" ></text>
 </g>
 <g >
-<title>[unknown] (48,392,740 samples, 0.05%)</title><rect x="967.2" y="53" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="970.16" y="63.5" ></text>
+<title>[unknown] (37,534,217 samples, 0.01%)</title><rect x="652.8" y="117" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="655.85" y="127.5" ></text>
 </g>
 <g >
-<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::compare (2,417,315,853 samples, 2.60%)</title><rect x="1142.8" y="197" width="30.7" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
-<text  x="1145.79" y="207.5" >st..</text>
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="149" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="159.5" ></text>
 </g>
 <g >
-<title>[libc.so.6] (18,363,926,930 samples, 19.78%)</title><rect x="10.0" y="261" width="233.5" height="15.0" fill="rgb(223,84,20)" rx="2" ry="2" />
-<text  x="13.00" y="271.5" >[libc.so.6]</text>
+<title>[libc.so.6] (17,034,749,720 samples, 3.86%)</title><rect x="345.4" y="133" width="45.5" height="15.0" fill="rgb(223,84,20)" rx="2" ry="2" />
+<text  x="348.38" y="143.5" >[lib..</text>
 </g>
 <g >
-<title>all (92,821,893,567 samples, 100%)</title><rect x="10.0" y="309" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
-<text  x="13.00" y="319.5" ></text>
+<title>[unknown] (38,645,302 samples, 0.01%)</title><rect x="390.9" y="85" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="393.88" y="95.5" ></text>
 </g>
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="165" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="175.5" ></text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::size (3,774,676,571 samples, 0.85%)</title><rect x="489.0" y="165" width="10.0" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="491.97" y="175.5" ></text>
 </g>
 <g >
-<title>[unknown] (192,725,504 samples, 0.21%)</title><rect x="965.3" y="117" width="2.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="968.32" y="127.5" ></text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::data (712,442,402 samples, 0.16%)</title><rect x="501.8" y="181" width="1.9" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="504.81" y="191.5" ></text>
 </g>
 <g >
-<title>memcmp@plt (1,296,551,930 samples, 1.40%)</title><rect x="1173.5" y="261" width="16.5" height="15.0" fill="rgb(251,214,51)" rx="2" ry="2" />
-<text  x="1176.52" y="271.5" ></text>
+<title>HashMan::get_or_create (75,333,051 samples, 0.02%)</title><rect x="35.7" y="197" width="0.2" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="38.72" y="207.5" ></text>
 </g>
 <g >
-<title>[unknown] (192,725,504 samples, 0.21%)</title><rect x="965.3" y="85" width="2.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="968.32" y="95.5" ></text>
+<title>[unknown] (188,089,932 samples, 0.04%)</title><rect x="998.3" y="101" width="0.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.31" y="111.5" ></text>
 </g>
 <g >
-<title>add_station (14,050,273,341 samples, 15.14%)</title><rect x="587.2" y="213" width="178.6" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="590.21" y="223.5" >add_station</text>
+<title>[unknown] (38,645,302 samples, 0.01%)</title><rect x="390.9" y="69" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="393.88" y="79.5" ></text>
 </g>
 <g >
-<title>[unknown] (64,371,555,832 samples, 69.35%)</title><rect x="243.5" y="261" width="818.3" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="246.45" y="271.5" >[unknown]</text>
+<title>[unknown] (37,534,217 samples, 0.01%)</title><rect x="652.8" y="181" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="655.85" y="191.5" ></text>
 </g>
 <g >
-<title>HashMan::get_or_create (38,435,314,520 samples, 41.41%)</title><rect x="277.2" y="229" width="488.6" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
-<text  x="280.21" y="239.5" >HashMan::get_or_create</text>
+<title>std::_Hash_impl::hash (2,687,963,006 samples, 0.61%)</title><rect x="600.1" y="165" width="7.2" height="15.0" fill="rgb(226,96,23)" rx="2" ry="2" />
+<text  x="603.10" y="175.5" ></text>
 </g>
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="181" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="191.5" ></text>
+<title>[unknown] (37,583,959 samples, 0.01%)</title><rect x="1189.9" y="325" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1192.88" y="335.5" ></text>
 </g>
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="213" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="223.5" ></text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::compare (54,623,298,113 samples, 12.37%)</title><rect x="301.7" y="149" width="145.9" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
+<text  x="304.67" y="159.5" >std::basic_string_..</text>
 </g>
 <g >
-<title>[unknown] (48,392,740 samples, 0.05%)</title><rect x="967.2" y="37" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="970.16" y="47.5" ></text>
+<title>[unknown] (559,444,935 samples, 0.13%)</title><rect x="997.3" y="181" width="1.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1000.32" y="191.5" ></text>
 </g>
 <g >
-<title>parse_value (6,959,071,274 samples, 7.50%)</title><rect x="973.3" y="213" width="88.5" height="15.0" fill="rgb(223,83,19)" rx="2" ry="2" />
-<text  x="976.31" y="223.5" >parse_value</text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::compare (839,591,460 samples, 0.19%)</title><rect x="486.7" y="165" width="2.3" height="15.0" fill="rgb(253,222,53)" rx="2" ry="2" />
+<text  x="489.72" y="175.5" ></text>
 </g>
 <g >
-<title>parse_station (435,630,387 samples, 0.47%)</title><rect x="967.8" y="213" width="5.5" height="15.0" fill="rgb(243,178,42)" rx="2" ry="2" />
-<text  x="970.77" y="223.5" ></text>
+<title>std::_Hash_impl::hash (37,544,384 samples, 0.01%)</title><rect x="501.7" y="181" width="0.1" height="15.0" fill="rgb(226,96,23)" rx="2" ry="2" />
+<text  x="504.71" y="191.5" ></text>
 </g>
 <g >
-<title>add_station (41,091,012,820 samples, 44.27%)</title><rect x="243.5" y="245" width="522.3" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="246.45" y="255.5" >add_station</text>
+<title>[unknown] (38,645,302 samples, 0.01%)</title><rect x="390.9" y="133" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="393.88" y="143.5" ></text>
 </g>
 <g >
-<title>1brc (92,821,893,567 samples, 100.00%)</title><rect x="10.0" y="293" width="1180.0" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
-<text  x="13.00" y="303.5" >1brc</text>
+<title>[libc.so.6] (441,663,158,731 samples, 99.98%)</title><rect x="10.0" y="357" width="1179.8" height="15.0" fill="rgb(223,84,20)" rx="2" ry="2" />
+<text  x="13.00" y="367.5" >[libc.so.6]</text>
 </g>
 <g >
-<title>[unknown] (289,747,526 samples, 0.31%)</title><rect x="964.1" y="133" width="3.7" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="967.09" y="143.5" ></text>
+<title>[unknown] (37,534,217 samples, 0.01%)</title><rect x="652.8" y="165" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="655.85" y="175.5" ></text>
 </g>
 <g >
-<title>[unknown] (96,801,687 samples, 0.10%)</title><rect x="966.5" y="69" width="1.3" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="969.54" y="79.5" ></text>
+<title>[unknown] (188,037,040 samples, 0.04%)</title><rect x="998.3" y="85" width="0.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.31" y="95.5" ></text>
 </g>
 <g >
-<title>[unknown] (435,682,506 samples, 0.47%)</title><rect x="962.2" y="149" width="5.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="965.23" y="159.5" ></text>
+<title>std::hash&lt;std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt; &gt;::operator (1,454,717,539 samples, 0.33%)</title><rect x="652.9" y="197" width="3.9" height="15.0" fill="rgb(248,200,47)" rx="2" ry="2" />
+<text  x="655.95" y="207.5" ></text>
 </g>
 <g >
-<title>FNVmanhash (8,012,991,767 samples, 8.63%)</title><rect x="484.7" y="213" width="101.9" height="15.0" fill="rgb(247,195,46)" rx="2" ry="2" />
-<text  x="487.73" y="223.5" >FNVmanhash</text>
+<title>parse_value (37,583,959 samples, 0.01%)</title><rect x="1189.9" y="341" width="0.1" height="15.0" fill="rgb(223,83,19)" rx="2" ry="2" />
+<text  x="1192.88" y="351.5" ></text>
 </g>
 <g >
-<title>[unknown] (192,725,504 samples, 0.21%)</title><rect x="965.3" y="101" width="2.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="968.32" y="111.5" ></text>
+<title>_M_invoke&lt;0, 1, 2, 3&gt; (441,663,157,378 samples, 99.98%)</title><rect x="10.0" y="277" width="1179.8" height="15.0" fill="rgb(236,146,35)" rx="2" ry="2" />
+<text  x="13.00" y="287.5" >_M_invoke&lt;0, 1, 2, 3&gt;</text>
 </g>
 <g >
-<title>[unknown] (484,161,129 samples, 0.52%)</title><rect x="961.6" y="197" width="6.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="964.62" y="207.5" ></text>
+<title>[unknown] (37,810,783 samples, 0.01%)</title><rect x="440.4" y="85" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="443.42" y="95.5" ></text>
 </g>
 <g >
-<title>WeatherStation::equals (7,241,408,093 samples, 7.80%)</title><rect x="1081.5" y="229" width="92.0" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
-<text  x="1084.46" y="239.5" >WeatherStat..</text>
+<title>[unknown] (37,725,128 samples, 0.01%)</title><rect x="35.8" y="181" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="38.82" y="191.5" ></text>
 </g>
 <g >
-<title>std::char_traits&lt;char&gt;::compare (1,399,745,798 samples, 1.51%)</title><rect x="1155.7" y="181" width="17.8" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
-<text  x="1158.72" y="191.5" ></text>
+<title>[unknown] (448,027,266 samples, 0.10%)</title><rect x="997.6" y="149" width="1.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1000.62" y="159.5" ></text>
 </g>
 <g >
-<title>[unknown] (484,161,129 samples, 0.52%)</title><rect x="961.6" y="165" width="6.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="964.62" y="175.5" ></text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::length (3,130,618,881 samples, 0.71%)</title><rect x="640.2" y="165" width="8.3" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
+<text  x="643.17" y="175.5" ></text>
 </g>
 <g >
-<title>bool std::operator==&lt;char, std::char_traits&lt;char&gt; &gt; (7,241,408,093 samples, 7.80%)</title><rect x="1081.5" y="213" width="92.0" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
-<text  x="1084.46" y="223.5" >bool std::o..</text>
+<title>parse_line (197,077,204,047 samples, 44.61%)</title><rect x="656.8" y="213" width="526.5" height="15.0" fill="rgb(228,110,26)" rx="2" ry="2" />
+<text  x="659.83" y="223.5" >parse_line</text>
 </g>
 <g >
-<title>[unknown] (628,558,700 samples, 0.68%)</title><rect x="959.8" y="213" width="8.0" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="962.78" y="223.5" ></text>
+<title>[unknown] (373,145,772 samples, 0.08%)</title><rect x="997.8" y="133" width="1.0" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1000.82" y="143.5" ></text>
 </g>
 <g >
-<title>[unknown] (484,161,129 samples, 0.52%)</title><rect x="961.6" y="181" width="6.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="964.62" y="191.5" ></text>
+<title>unsigned long const&amp; std::min&lt;unsigned long&gt; (2,191,083,620 samples, 0.50%)</title><rect x="441.7" y="133" width="5.9" height="15.0" fill="rgb(207,13,3)" rx="2" ry="2" />
+<text  x="444.73" y="143.5" ></text>
 </g>
 <g >
-<title>create_weather_station_map (23,280,543,012 samples, 25.08%)</title><rect x="765.8" y="245" width="296.0" height="15.0" fill="rgb(229,112,26)" rx="2" ry="2" />
-<text  x="768.82" y="255.5" >create_weather_station_map</text>
+<title>bool std::operator==&lt;char, std::char_traits&lt;char&gt; &gt; (924,765,319 samples, 0.21%)</title><rect x="499.2" y="181" width="2.5" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
+<text  x="502.24" y="191.5" ></text>
 </g>
 <g >
-<title>add_station (8,789,841,790 samples, 9.47%)</title><rect x="1061.8" y="261" width="111.7" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
-<text  x="1064.78" y="271.5" >add_station</text>
+<title>[unknown] (37,810,783 samples, 0.01%)</title><rect x="440.4" y="117" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="443.42" y="127.5" ></text>
 </g>
 <g >
-<title>[unknown] (92,821,876,482 samples, 100.00%)</title><rect x="10.0" y="277" width="1180.0" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="13.00" y="287.5" >[unknown]</text>
+<title>multi_thread_fill_weather_station_map (438,654,038,188 samples, 99.30%)</title><rect x="13.8" y="229" width="1171.8" height="15.0" fill="rgb(208,16,3)" rx="2" ry="2" />
+<text  x="16.83" y="239.5" >multi_thread_fill_weather_station_map</text>
 </g>
 <g >
-<title>[unknown] (48,524,073 samples, 0.05%)</title><rect x="586.6" y="149" width="0.6" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
-<text  x="589.59" y="159.5" ></text>
+<title>parse_station (862,797,624 samples, 0.20%)</title><rect x="1183.3" y="213" width="2.3" height="15.0" fill="rgb(243,178,42)" rx="2" ry="2" />
+<text  x="1186.27" y="223.5" ></text>
 </g>
 <g >
-<title>HashMan::get_or_create (7,241,408,093 samples, 7.80%)</title><rect x="1081.5" y="245" width="92.0" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
-<text  x="1084.46" y="255.5" >HashMan::ge..</text>
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::length (1,656,246,365 samples, 0.37%)</title><rect x="503.7" y="181" width="4.4" height="15.0" fill="rgb(205,3,0)" rx="2" ry="2" />
+<text  x="506.72" y="191.5" ></text>
+</g>
+<g >
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::basic_string_view (2,113,400,787 samples, 0.48%)</title><rect x="1177.6" y="197" width="5.7" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
+<text  x="1180.63" y="207.5" ></text>
+</g>
+<g >
+<title>parse_value (29,865,191,262 samples, 6.76%)</title><rect x="1097.9" y="197" width="79.7" height="15.0" fill="rgb(223,83,19)" rx="2" ry="2" />
+<text  x="1100.85" y="207.5" >parse_value</text>
+</g>
+<g >
+<title>[unknown] (37,725,128 samples, 0.01%)</title><rect x="35.8" y="149" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="38.82" y="159.5" ></text>
+</g>
+<g >
+<title>std::char_traits&lt;char&gt;::compare (6,857,250,655 samples, 1.55%)</title><rect x="423.4" y="133" width="18.3" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
+<text  x="426.41" y="143.5" ></text>
+</g>
+<g >
+<title>[unknown] (75,333,051 samples, 0.02%)</title><rect x="35.7" y="213" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="38.72" y="223.5" ></text>
+</g>
+<g >
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::data (12,313,484,275 samples, 2.79%)</title><rect x="607.3" y="165" width="32.9" height="15.0" fill="rgb(254,227,54)" rx="2" ry="2" />
+<text  x="610.28" y="175.5" >st..</text>
+</g>
+<g >
+<title>add_station (1,434,641,777 samples, 0.32%)</title><rect x="10.0" y="229" width="3.8" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="13.00" y="239.5" ></text>
+</g>
+<g >
+<title>parse_station (37,074,954,388 samples, 8.39%)</title><rect x="998.8" y="197" width="99.1" height="15.0" fill="rgb(243,178,42)" rx="2" ry="2" />
+<text  x="1001.82" y="207.5" >parse_station</text>
+</g>
+<g >
+<title>[unknown] (37,607,923 samples, 0.01%)</title><rect x="35.7" y="149" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="38.72" y="159.5" ></text>
+</g>
+<g >
+<title>shift_mix (9,101,323,272 samples, 2.06%)</title><rect x="572.7" y="149" width="24.3" height="15.0" fill="rgb(240,165,39)" rx="2" ry="2" />
+<text  x="575.67" y="159.5" >s..</text>
+</g>
+<g >
+<title>std::__is_constant_evaluated (451,184,399 samples, 0.10%)</title><rect x="440.5" y="117" width="1.2" height="15.0" fill="rgb(234,137,32)" rx="2" ry="2" />
+<text  x="443.52" y="127.5" ></text>
+</g>
+<g >
+<title>[unknown] (38,645,302 samples, 0.01%)</title><rect x="390.9" y="101" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="393.88" y="111.5" ></text>
+</g>
+<g >
+<title>std::_Hash_bytes (1,165,688,661 samples, 0.26%)</title><rect x="597.0" y="165" width="3.1" height="15.0" fill="rgb(232,127,30)" rx="2" ry="2" />
+<text  x="599.98" y="175.5" ></text>
+</g>
+<g >
+<title>[unknown] (37,534,217 samples, 0.01%)</title><rect x="652.8" y="149" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="655.85" y="159.5" ></text>
+</g>
+<g >
+<title>unsigned long const&amp; std::min&lt;unsigned long&gt; (1,668,400,620 samples, 0.38%)</title><rect x="482.3" y="149" width="4.4" height="15.0" fill="rgb(207,13,3)" rx="2" ry="2" />
+<text  x="485.27" y="159.5" ></text>
+</g>
+<g >
+<title>std::hash&lt;std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt; &gt;::operator (52,556,384,362 samples, 11.90%)</title><rect x="508.1" y="181" width="140.4" height="15.0" fill="rgb(248,200,47)" rx="2" ry="2" />
+<text  x="511.14" y="191.5" >std::hash&lt;std::ba..</text>
+</g>
+<g >
+<title>[unknown] (37,725,128 samples, 0.01%)</title><rect x="35.8" y="165" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="38.82" y="175.5" ></text>
+</g>
+<g >
+<title>_M_run (441,663,157,378 samples, 99.98%)</title><rect x="10.0" y="309" width="1179.8" height="15.0" fill="rgb(235,142,34)" rx="2" ry="2" />
+<text  x="13.00" y="319.5" >_M_run</text>
+</g>
+<g >
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="101" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="111.5" ></text>
+</g>
+<g >
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::size (12,684,935,481 samples, 2.87%)</title><rect x="447.6" y="149" width="33.9" height="15.0" fill="rgb(241,166,39)" rx="2" ry="2" />
+<text  x="450.58" y="159.5" >st..</text>
+</g>
+<g >
+<title>[unknown] (38,645,302 samples, 0.01%)</title><rect x="390.9" y="117" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="393.88" y="127.5" ></text>
+</g>
+<g >
+<title>HashMan::get_or_create (193,561,471,544 samples, 43.82%)</title><rect x="131.5" y="197" width="517.0" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="134.49" y="207.5" >HashMan::get_or_create</text>
+</g>
+<g >
+<title>WeatherStation::equals (37,607,923 samples, 0.01%)</title><rect x="35.7" y="181" width="0.1" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
+<text  x="38.72" y="191.5" ></text>
+</g>
+<g >
+<title>WeatherStation::equals (1,653,353,287 samples, 0.37%)</title><rect x="648.5" y="197" width="4.4" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
+<text  x="651.53" y="207.5" ></text>
+</g>
+<g >
+<title>bool std::operator==&lt;char, std::char_traits&lt;char&gt; &gt; (75,972,357,075 samples, 17.20%)</title><rect x="283.8" y="165" width="202.9" height="15.0" fill="rgb(226,97,23)" rx="2" ry="2" />
+<text  x="286.78" y="175.5" >bool std::operator==&lt;char,..</text>
+</g>
+<g >
+<title>__invoke_impl&lt;void, void  (441,663,145,690 samples, 99.98%)</title><rect x="10.0" y="245" width="1179.8" height="15.0" fill="rgb(214,44,10)" rx="2" ry="2" />
+<text  x="13.00" y="255.5" >__invoke_impl&lt;void, void </text>
+</g>
+<g >
+<title>HashMan::get_or_create (184,494,025 samples, 0.04%)</title><rect x="35.2" y="213" width="0.5" height="15.0" fill="rgb(218,61,14)" rx="2" ry="2" />
+<text  x="38.23" y="223.5" ></text>
+</g>
+<g >
+<title>_Hash_bytes (24,832,411,691 samples, 5.62%)</title><rect x="530.7" y="165" width="66.3" height="15.0" fill="rgb(220,70,16)" rx="2" ry="2" />
+<text  x="533.65" y="175.5" >_Hash_b..</text>
+</g>
+<g >
+<title>[unknown] (37,534,217 samples, 0.01%)</title><rect x="652.8" y="133" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="655.85" y="143.5" ></text>
+</g>
+<g >
+<title>all (441,744,031,864 samples, 100%)</title><rect x="10.0" y="389" width="1180.0" height="15.0" fill="rgb(213,39,9)" rx="2" ry="2" />
+<text  x="13.00" y="399.5" ></text>
+</g>
+<g >
+<title>[libstdc++.so.6.0.34] (441,663,157,636 samples, 99.98%)</title><rect x="10.0" y="325" width="1179.8" height="15.0" fill="rgb(209,21,5)" rx="2" ry="2" />
+<text  x="13.00" y="335.5" >[libstdc++.so.6.0.34]</text>
+</g>
+<g >
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="181" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="191.5" ></text>
+</g>
+<g >
+<title>[libc.so.6] (441,663,158,715 samples, 99.98%)</title><rect x="10.0" y="341" width="1179.8" height="15.0" fill="rgb(223,84,20)" rx="2" ry="2" />
+<text  x="13.00" y="351.5" >[libc.so.6]</text>
+</g>
+<g >
+<title>operator (441,663,157,378 samples, 99.98%)</title><rect x="10.0" y="293" width="1179.8" height="15.0" fill="rgb(254,228,54)" rx="2" ry="2" />
+<text  x="13.00" y="303.5" >operator</text>
+</g>
+<g >
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="133" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="143.5" ></text>
+</g>
+<g >
+<title>load_bytes (7,790,040,290 samples, 1.76%)</title><rect x="551.9" y="149" width="20.8" height="15.0" fill="rgb(253,221,52)" rx="2" ry="2" />
+<text  x="554.86" y="159.5" ></text>
+</g>
+<g >
+<title>__invoke&lt;void  (441,663,145,690 samples, 99.98%)</title><rect x="10.0" y="261" width="1179.8" height="15.0" fill="rgb(226,98,23)" rx="2" ry="2" />
+<text  x="13.00" y="271.5" >__invoke&lt;void </text>
+</g>
+<g >
+<title>[unknown] (112,912,483 samples, 0.03%)</title><rect x="998.5" y="53" width="0.3" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.51" y="63.5" ></text>
+</g>
+<g >
+<title>std::char_traits&lt;char&gt;::compare (299,015,221 samples, 0.07%)</title><rect x="481.5" y="149" width="0.8" height="15.0" fill="rgb(243,176,42)" rx="2" ry="2" />
+<text  x="484.47" y="159.5" ></text>
+</g>
+<g >
+<title>add_station (232,445,375,058 samples, 52.62%)</title><rect x="35.9" y="213" width="620.9" height="15.0" fill="rgb(207,9,2)" rx="2" ry="2" />
+<text  x="38.92" y="223.5" >add_station</text>
+</g>
+<g >
+<title>std::basic_string_view&lt;char, std::char_traits&lt;char&gt; &gt;::basic_string_view (20,828,802,951 samples, 4.72%)</title><rect x="1042.2" y="181" width="55.7" height="15.0" fill="rgb(210,25,6)" rx="2" ry="2" />
+<text  x="1045.21" y="191.5" >std::..</text>
+</g>
+<g >
+<title>[unknown] (559,444,935 samples, 0.13%)</title><rect x="997.3" y="165" width="1.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1000.32" y="175.5" ></text>
+</g>
+<g >
+<title>memcmp@plt (603,385,315 samples, 0.14%)</title><rect x="421.8" y="133" width="1.6" height="15.0" fill="rgb(251,214,51)" rx="2" ry="2" />
+<text  x="424.80" y="143.5" ></text>
+</g>
+<g >
+<title>[unknown] (74,177,426 samples, 0.02%)</title><rect x="1189.8" y="357" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1192.78" y="367.5" ></text>
+</g>
+<g >
+<title>_S_compare (488,012,286 samples, 0.11%)</title><rect x="300.4" y="149" width="1.3" height="15.0" fill="rgb(250,208,49)" rx="2" ry="2" />
+<text  x="303.37" y="159.5" ></text>
+</g>
+<g >
+<title>[unknown] (37,810,783 samples, 0.01%)</title><rect x="440.4" y="101" width="0.1" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="443.42" y="111.5" ></text>
+</g>
+<g >
+<title>[unknown] (75,196,769 samples, 0.02%)</title><rect x="998.6" y="37" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.61" y="47.5" ></text>
+</g>
+<g >
+<title>parse_line (1,574,465,725 samples, 0.36%)</title><rect x="1185.6" y="229" width="4.2" height="15.0" fill="rgb(228,110,26)" rx="2" ry="2" />
+<text  x="1188.58" y="239.5" ></text>
+</g>
+<g >
+<title>_S_compare (11,536,444,339 samples, 2.61%)</title><rect x="391.0" y="133" width="30.8" height="15.0" fill="rgb(250,208,49)" rx="2" ry="2" />
+<text  x="393.98" y="143.5" >_S..</text>
+</g>
+<g >
+<title>[unknown] (672,070,729 samples, 0.15%)</title><rect x="997.0" y="197" width="1.8" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1000.02" y="207.5" ></text>
+</g>
+<g >
+<title>1brc (441,744,031,864 samples, 100.00%)</title><rect x="10.0" y="373" width="1180.0" height="15.0" fill="rgb(237,151,36)" rx="2" ry="2" />
+<text  x="13.00" y="383.5" >1brc</text>
+</g>
+<g >
+<title>[unknown] (188,089,932 samples, 0.04%)</title><rect x="998.3" y="117" width="0.5" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="1001.31" y="127.5" ></text>
+</g>
+<g >
+<title>[unknown] (73,363,023 samples, 0.02%)</title><rect x="499.0" y="117" width="0.2" height="15.0" fill="rgb(210,24,5)" rx="2" ry="2" />
+<text  x="502.05" y="127.5" ></text>
+</g>
+<g >
+<title>WeatherStation::equals (86,795,178,509 samples, 19.65%)</title><rect x="267.2" y="181" width="231.8" height="15.0" fill="rgb(240,162,38)" rx="2" ry="2" />
+<text  x="270.20" y="191.5" >WeatherStation::equals</text>
 </g>
 </g>
 </svg>

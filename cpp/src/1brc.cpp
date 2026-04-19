@@ -18,10 +18,9 @@ aggregate, and retrieve the results per station.
 access value by name if not present, append to total, add 1 to struct count
 
 TODO LIST
-- Add thread logic, split the file into N parts and have each thread process a part, then aggregate results at the end
-    - For threads go with an atomic iterator that goes through threads, anytime this atomic var gets called, it feeds a chunk
-    - To the requesting thread
 - MAYBE: Implement a better parsing function
+- Remove atomic counter
+- Hash while we parse line
 */
 
 #include <print>
@@ -38,6 +37,12 @@ TODO LIST
 #include <unistd.h>
 #include <chrono>
 #include <span>
+#include <thread>
+
+// ! Global Constants
+unsigned int NUMBER_OF_THREADS = std::thread::hardware_concurrency();
+size_t number_of_chunks = NUMBER_OF_THREADS * 4;
+unsigned int CHUNK_BATCH_SIZE = 4;
 
 /// @brief Represents the weather station found in "measurements.txt"
 struct WeatherStation
@@ -69,9 +74,9 @@ struct WeatherStation
 
 // FNV-1a 32-bit hash function
 // Generate a deterministic integer hash of a byte seq
-static inline uint_fast32_t FNVmanhash(std::string_view key)
+static inline uint_fast16_t FNVmanhash(std::string_view key)
 {
-    uint_fast32_t hash_number = 2166136261u; // FNV Hash number, good for distributions and stuff
+    uint_fast16_t hash_number = 2166136261u; // FNV Hash number, good for distributions and stuff
     size_t key_len = key.length();
     for (size_t i = 0; i < key_len; i++)
     {
@@ -81,12 +86,11 @@ static inline uint_fast32_t FNVmanhash(std::string_view key)
     return hash_number;
 }
 
-// TODO: Add a move function
-// TODO: Add a const non mutating find
+/// @brief Custom hashmap implementation, linear probing, non dynamic resizing
 struct HashMan
 {
-    WeatherStation *stations;
-    uint_fast32_t *hashes; // Stores the hash of a station key
+    WeatherStation *stations; // Stores the weather station
+    uint_fast16_t *hashes;    // Stores the hash of a station key
 
     uint_fast16_t size;
     uint_fast16_t capacity;
@@ -101,7 +105,7 @@ struct HashMan
 
         // * Malloc enough slots for capacity number of WeatherStation elements
         stations = new WeatherStation[capacity]();
-        hashes = new uint_fast32_t[capacity]();
+        hashes = new uint_fast16_t[capacity]();
     }
 
     // Destructor
@@ -126,13 +130,14 @@ struct HashMan
     HashMan &operator=(const HashMan &) = delete;
 
     // TODO: Quadratic Probing approach?
-    // TODO: Fix control flow in potential match
+    // TODO: Edit the station when we have a match
     // Looks for value in table, linear probing approach
     WeatherStation *get_or_create(std::string_view key)
     {
         // Shift by 1, so 0 can remain the empty slot flag
-        uint_fast32_t key_hash = FNVmanhash(key) + 1;
-        uint_fast32_t idx = key_hash & mask;
+        // uint_fast16_t key_hash = FNVmanhash(key) + 1;
+        uint_fast16_t key_hash = std::hash<std::string_view>{}(key) + 1;
+        uint_fast16_t idx = key_hash & mask; // Simulate modulo of capacity but with 1 less than a power of 2 is faster
 
         // Probe for empty slot
         while (true)
@@ -162,8 +167,9 @@ struct HashMan
     const WeatherStation *get(std::string_view key) const
     {
         // Shift by 1, so 0 can remain the empty slot flag
-        uint_fast32_t key_hash = FNVmanhash(key) + 1;
-        uint_fast32_t idx = key_hash & mask;
+        // uint_fast16_t key_hash = FNVmanhash(key) + 1;
+        uint_fast16_t key_hash = std::hash<std::string_view>{}(key) + 1;
+        uint_fast16_t idx = key_hash & mask;
 
         while (true)
         {
@@ -235,6 +241,37 @@ struct MMapFile
         other.data = nullptr;
         return *this;
     }
+
+    // Function to create an vector of chunks so that we can distribute them to the threads
+    // Chunk mmap file into four times more than number of threads, play around with this number
+    // Make sure we get a starting and ending byte for every chunk
+    std::vector<std::span<const char>> chunkify()
+    {
+
+        size_t chunk_size = size / number_of_chunks;
+        const char *chunk_begin = data;
+
+        std::vector<std::span<const char>> chunks{};
+        // -1 in the chunk number since we set the last one manually
+        for (size_t i = 0; i < number_of_chunks - 1; i++)
+        {
+            const char *chunk_end = chunk_begin + chunk_size;
+            // Find end char
+            while (chunk_end != data + size && *chunk_end != '\n')
+            {
+                chunk_end++;
+            }
+            // Move to start of new line as range is not inclusive
+            chunk_end++;
+            chunks.push_back({chunk_begin, chunk_end});
+            // Restart chunk start pointer
+            chunk_begin = chunk_end;
+        }
+
+        // Push last chunk
+        chunks.push_back({chunk_begin, data + size});
+        return chunks;
+    }
 };
 
 /// @brief mmaps "measurements.txt" and gets a pointer to the data
@@ -291,6 +328,10 @@ MMapFile mmap_file()
     }
     ::close(fd);
 
+    // * More kernel advise
+    ::madvise(ptr, size, MADV_SEQUENTIAL);
+    ::madvise(ptr, size, MADV_HUGEPAGE);
+
     auto t3 = std::chrono::high_resolution_clock::now();
     std::println("mmap() time: {:.6f} seconds",
                  std::chrono::duration<double>(t3 - t2).count());
@@ -299,7 +340,8 @@ MMapFile mmap_file()
     return {size, static_cast<const char *>(ptr)};
 }
 
-// @brief Parses the temperature value from a semicolon pointer and returns scaled int
+// TODO: branch on length
+/// @brief Parses the temperature value from a semicolon pointer and returns scaled int
 int_fast16_t parse_value(const char *sc)
 {
     const char *p = sc + 1; // skip semicolon
@@ -327,17 +369,17 @@ int_fast16_t parse_value(const char *sc)
     return neg ? -result : result;
 }
 
-// @brief Extracts the station name view from line start to semicolon pointer
+/// @brief Extracts the station name view from line start to semicolon pointer
 std::string_view parse_station(const char *line_start, const char *sc)
 {
     return {line_start, static_cast<size_t>(sc - line_start)};
 }
 
 // TODO: Compute hash while we iterate, so we dont parse over string more than once
-// @brief Parses a line using pointer arithmetic and advances iter to the next line
-// @param iter The pointer pointing to the current position in the data, passed by reference and updated during parsing
-// @param out_name Output parameter for the parsed station name, passed by reference and set during execution
-// @param out_value Output parameter for the parsed temperature value, passed by reference and set during execution
+/// @brief Parses a line using pointer arithmetic and advances iter to the next line
+/// @param iter The pointer pointing to the current position in the data, passed by reference and updated during parsing
+/// @param out_name Output parameter for the parsed station name, passed by reference and set during execution
+/// @param out_value Output parameter for the parsed temperature value, passed by reference and set during execution
 void parse_line(const char *&iter, std::string_view &out_name, int_fast16_t &out_value)
 {
     const char *line_start = iter;
@@ -368,7 +410,7 @@ void parse_line(const char *&iter, std::string_view &out_name, int_fast16_t &out
     out_value = parse_value(sc);
 }
 
-// @brief Adds station to map and updates its data with value
+/// @brief Adds station to map and updates its data with value
 void add_station(std::string_view name, int_fast16_t value, HashMan &weather_stations)
 {
     auto station_ptr = weather_stations.get_or_create(name);
@@ -386,7 +428,7 @@ void add_station(std::string_view name, int_fast16_t value, HashMan &weather_sta
     station.count++;
 }
 
-// @brief Parse and map creation loop
+/// @brief Parse and map creation loop
 HashMan create_weather_station_map(MMapFile &mapped)
 {
     HashMan weather_stations{};
@@ -411,6 +453,42 @@ HashMan create_weather_station_map(MMapFile &mapped)
     }
 
     return weather_stations;
+}
+
+/// @brief
+/// @param local_map, reference to this threads own map which it will fill
+/// @param current_chunk, reference to the atomic index counter that all threads increment, take a batch of chunks, for now lets say 4
+/// @param chunks, reference to the chunks array, we cant modify it as its shared we only read
+void multi_thread_fill_weather_station_map(HashMan &local_map, std::atomic<size_t> &current_chunk, const std::vector<std::span<const char>> &chunks)
+{
+    // Grab the index of chunks to work on
+    while (true)
+    {
+        size_t current_chunk_start = current_chunk.fetch_add(CHUNK_BATCH_SIZE);
+        if (current_chunk_start >= number_of_chunks)
+        {
+            break;
+        }
+        size_t current_chunk_end = std::min(current_chunk_start + CHUNK_BATCH_SIZE, number_of_chunks);
+
+        // Variables we will use to store the parsed station name and value, passed by reference to the parsing function
+        std::string_view name;
+        int_fast16_t value;
+        // Process individual chunk
+        for (size_t i = current_chunk_start; i < current_chunk_end; i++)
+        {
+            auto curr_chunk = chunks[i];
+
+            const char *it = curr_chunk.data();
+            const char *end = curr_chunk.data() + curr_chunk.size();
+
+            while (it != end)
+            {
+                parse_line(it, name, value);
+                add_station(name, value, local_map);
+            }
+        }
+    }
 }
 
 /// This function should take in the hashmap of all stations and output in the desired format to stdout
@@ -460,9 +538,94 @@ void output_stations(const HashMan &map)
     std::println("}}");
 }
 
+void single_thread(std::chrono::_V2::system_clock::time_point start, MMapFile &mapped_data)
+{
+    // Parse file into sorted key hashmap
+    HashMan weather_stations = create_weather_station_map(mapped_data);
+
+    auto created_map = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> map_creation_time = created_map - start;
+    std::println("Map creation/parsing time: {:.6f} seconds", map_creation_time.count());
+
+    // Pass hashmap into output function
+    output_stations(weather_stations);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    std::println("Total elapsed time: {:.6f} seconds", elapsed.count());
+
+    std::println("Finished 1brc program");
+}
+
+// TODO: Finish
+void multi_thread(std::chrono::_V2::system_clock::time_point start, MMapFile &mapped_data)
+{
+    std::println("In MultiThreading");
+
+    // Grab chunks
+    std::vector<std::span<const char>> chunks = mapped_data.chunkify();
+    // Atomic indexer for chunks
+    std::atomic<size_t> current_chunk = 0;
+
+    // All hashmaps
+    std::vector<HashMan> all_hashes(NUMBER_OF_THREADS);
+
+    // Container for threads
+    std::vector<std::thread> threads;
+    threads.reserve(NUMBER_OF_THREADS); // * Reserve dont spawn defaults since we want to fill threads with worker function call back
+
+    // Spawn threads with their own maps
+    for (int i = 0; i < NUMBER_OF_THREADS; i++)
+    {
+        // Spawn thread in container
+        threads.emplace_back(multi_thread_fill_weather_station_map, std::ref(all_hashes[i]), std::ref(current_chunk), std::ref(chunks));
+    }
+
+    // Await for work to finish
+    for (auto &t : threads)
+    {
+        t.join();
+    }
+
+    // TODO: In future look to faster merging strategies
+    // Chose first local map as global
+    HashMan &merged_map = all_hashes[0];
+    for (int i = 1; i < all_hashes.size(); i++)
+    {
+        HashMan &current_hash_map = all_hashes[i];
+        // Walk through all indices in this hashmap
+        for (uint_fast16_t idx = 0; idx < current_hash_map.capacity; ++idx)
+        {
+            if (current_hash_map.hashes[idx] != 0)
+            {
+                WeatherStation &current_station = current_hash_map.stations[idx];
+
+                WeatherStation &merged_station = *merged_map.get_or_create(current_station.key);
+
+                // Update global station with current station val
+                if (current_station.min < merged_station.min)
+                    merged_station.min = current_station.min;
+                if (current_station.max > merged_station.max)
+                    merged_station.max = current_station.max;
+
+                merged_station.total += current_station.total;
+                merged_station.count += current_station.count;
+            }
+        }
+    }
+
+    output_stations(merged_map);
+
+    auto end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed = end - start;
+    std::println("Total elapsed time: {:.6f} seconds", elapsed.count());
+
+    std::println("Finished 1brc program");
+}
+
 int main()
 {
-    auto start = std::chrono::high_resolution_clock::now();
+    std::chrono::_V2::system_clock::time_point start = std::chrono::high_resolution_clock::now();
     // Mmap file and get pointer to data
     std::println("Starting mmap");
 
@@ -478,20 +641,15 @@ int main()
     std::chrono::duration<double> read_time = read_end - start;
     std::println("File read time: {:.6f} seconds", read_time.count());
 
-    // Parse file into sorted key hashmap
-    HashMan weather_stations = create_weather_station_map(mapped);
+    bool use_single_thread = false;
+    if (use_single_thread)
+    {
+        single_thread(start, mapped);
+    }
+    else
+    {
+        multi_thread(start, mapped);
+    }
 
-    auto created_map = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> map_creation_time = created_map - start;
-    std::println("Map creation/parsing time: {:.6f} seconds", map_creation_time.count());
-
-    // Pass hashmap into output function
-    output_stations(weather_stations);
-
-    auto end = std::chrono::high_resolution_clock::now();
-    std::chrono::duration<double> elapsed = end - start;
-    std::println("Total elapsed time: {:.6f} seconds", elapsed.count());
-
-    std::println("Finished 1brc program");
     return 0;
 }
