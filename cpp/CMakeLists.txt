@@ -27,7 +27,7 @@ add_executable(1brc src/1brc.cpp)
 target_compile_options(1brc PRIVATE
     $<$<CXX_COMPILER_ID:GNU,Clang,AppleClang>:
     -Wall -Wextra -Wpedantic
-    -O0 -g
+    -O3 -g
 
     # $<$<CONFIG:Release>:-O3 -march=native>
     # $<$<CONFIG:Debug>:-g -O0>
