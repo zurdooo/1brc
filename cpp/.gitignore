@@ -1,5 +1,5 @@
 build/
 measurements.txt
-.data.old
-.data
+perf.data.old
+perf.data
 sample.svg
