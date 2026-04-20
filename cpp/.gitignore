@@ -1,2 +1,5 @@
 build/
 measurements.txt
+.data.old
+.data
+sample.svg
