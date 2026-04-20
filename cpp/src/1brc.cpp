@@ -38,6 +38,7 @@ TODO LIST
 #include <unistd.h>
 #include <chrono>
 #include <span>
+#include <cstring>
 #include <thread>
 
 // ! Global Constants
@@ -543,9 +544,69 @@ void one_br_perf()
                  time_elapse.count());
 }
 
+static constexpr uint64_t SEMICOLON_PATTERN = 0x3B3B3B3B3B3B3B3BULL;
+static constexpr uint64_t NEWLINE_PATTERN   = 0x0A0A0A0A0A0A0A0AULL;
+
+static inline uint64_t match_byte(uint64_t word, uint64_t pattern) {
+    uint64_t m = word ^ pattern;
+    return (m - 0x0101010101010101ULL) & (~m & 0x8080808080808080ULL);
+}
+
+void read_every_char_in_given_bytes_2(const char *mmap_start, uint_fast64_t memory_size, uint thread_id,
+                                    std::atomic<uint64_t> &total_sc, std::atomic<uint64_t> &total_nl)
+{
+    uint64_t semicolons = 0, newlines = 0;
+
+    const char *ptr   = mmap_start + (thread_id * memory_size);
+    const char *end   = ptr + memory_size;
+    const char *end8  = ptr + (memory_size & ~7ULL);
+
+    for (; ptr < end8; ptr += 8) {
+        uint64_t word;
+        std::memcpy(&word, ptr, 8);
+        semicolons += __builtin_popcountll(match_byte(word, SEMICOLON_PATTERN));
+        newlines   += __builtin_popcountll(match_byte(word, NEWLINE_PATTERN));
+    }
+
+    for (; ptr < end; ptr++) {
+        semicolons += (*ptr == ';');
+        newlines   += (*ptr == '\n');
+    }
+
+    total_sc.fetch_add(semicolons, std::memory_order_relaxed);
+    total_nl.fetch_add(newlines,   std::memory_order_relaxed);
+}
+
+void one_br_perf_2()
+{
+    auto start_time = std::chrono::high_resolution_clock::now();
+
+    MMapFile mapped = mmap_file();
+
+    std::atomic<uint64_t> total_sc{0}, total_nl{0};
+    std::vector<std::thread> threads;
+    uint_fast64_t thread_memory_size = mapped.size / NUMBER_OF_THREADS;
+
+    for (uint i = 0; i < NUMBER_OF_THREADS; i++)
+    {
+        threads.emplace_back(
+            read_every_char_in_given_bytes_2, mapped.data, thread_memory_size, i,
+            std::ref(total_sc), std::ref(total_nl));
+    }
+
+    for (auto &t : threads)
+        t.join();
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> time_elapse = end_time - start_time;
+    std::println("semicolons: {}  newlines: {}", total_sc.load(), total_nl.load());
+    std::println("The perf thread phase finished at seconds (duration: {:.6f} seconds)",
+                 time_elapse.count());
+}
+
 int main()
 {
-    one_br_perf();
+    one_br_perf_2();
     std::println("Perf done");
 
     auto start_time = std::chrono::high_resolution_clock::now();
