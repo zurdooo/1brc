@@ -31,6 +31,7 @@ TODO LIST
 #include <string_view>
 #include <charconv>
 #include <cstdlib>
+#include <cstdio>
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <sys/stat.h>
@@ -420,12 +421,12 @@ void add_station(std::string_view name, int_fast16_t value, HashMan &weather_sta
 /// @param local_map, reference to this threads own map which it will fill
 /// @param current_chunk, reference to the atomic index counter that all threads increment, take a batch of chunks, for now lets say 4
 /// @param chunks, reference to the chunks array, we cant modify it as its shared we only read
-void multi_thread_fill_weather_station_map(HashMan &local_map, std::atomic<size_t> &current_chunk, const std::vector<std::span<const char>> &chunks)
+void multi_thread_fill_weather_station_map(HashMan &local_map, std::atomic<size_t> &atomic_chunk, const std::vector<std::span<const char>> &chunks)
 {
     // Grab the index of chunks to work on
     while (true)
     {
-        size_t current_chunk_start = current_chunk.fetch_add(CHUNK_BATCH_SIZE);
+        size_t current_chunk_start = atomic_chunk.fetch_add(CHUNK_BATCH_SIZE);
         if (current_chunk_start >= number_of_chunks)
         {
             break;
@@ -502,8 +503,51 @@ void output_stations(const HashMan &map)
     std::println("}}");
 }
 
+void read_every_char_in_given_bytes(const char *mmap_start, uint_fast64_t memory_size, uint thread_id)
+{
+    volatile uint_fast64_t sink = 0;
+    const char *ptr = mmap_start + (thread_id * memory_size);
+    for (uint_fast64_t i = 0; i < memory_size; i++, ptr++)
+    {
+        // if (*ptr == ';' || *ptr == '\n')
+        //     sink += *ptr;
+        sink += 1;
+    }
+}
+
+void one_br_perf()
+{
+    auto start_time = std::chrono::high_resolution_clock::now();
+
+    // Mmap file and get pointer to data
+    // Read file into memory
+    MMapFile mapped = mmap_file();
+
+    std::vector<std::thread> threads;
+    uint_fast64_t thread_memory_size = mapped.size / NUMBER_OF_THREADS;
+
+    for (uint i = 0; i < NUMBER_OF_THREADS; i++)
+    {
+        threads.emplace_back(
+            read_every_char_in_given_bytes, std::ref(mapped.data), thread_memory_size, i);
+    }
+
+    for (auto &t : threads)
+    {
+        t.join();
+    }
+
+    auto end_time = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> time_elapse = end_time - start_time;
+    std::println("The perf thread phase finished at seconds (duration: {:.6f} seconds)",
+                 time_elapse.count());
+}
+
 int main()
 {
+    one_br_perf();
+    std::println("Perf done");
+
     auto start_time = std::chrono::high_resolution_clock::now();
 
     // Mmap file and get pointer to data
@@ -516,8 +560,9 @@ int main()
 
     std::vector<std::span<const char>>
         chunks = mapped.chunkify();
+
     // Atomic indexer for chunks
-    std::atomic<size_t> current_chunk = 0;
+    std::atomic<size_t> atomic_chunk_counter = 0;
 
     // All hashmaps
     std::vector<HashMan> all_hashes(NUMBER_OF_THREADS);
@@ -527,10 +572,11 @@ int main()
     threads.reserve(NUMBER_OF_THREADS); // * Reserve dont spawn defaults since we want to fill threads with worker function call back
 
     // Spawn threads with their own maps
+    auto thread_phase_start = std::chrono::high_resolution_clock::now();
     for (uint i = 0; i < NUMBER_OF_THREADS; i++)
     {
         // Spawn thread in container
-        threads.emplace_back(multi_thread_fill_weather_station_map, std::ref(all_hashes[i]), std::ref(current_chunk), std::ref(chunks));
+        threads.emplace_back(multi_thread_fill_weather_station_map, std::ref(all_hashes[i]), std::ref(atomic_chunk_counter), std::ref(chunks));
     }
 
     // Await for work to finish
@@ -539,9 +585,16 @@ int main()
         t.join();
     }
 
+    auto thread_phase_end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> thread_phase_elapsed = thread_phase_end - thread_phase_start;
+    std::chrono::duration<double> since_start_to_thread_finish = thread_phase_end - start_time;
+    std::println(stderr, "Thread phase finished at {:.6f} seconds (duration: {:.6f} seconds)",
+                 since_start_to_thread_finish.count(), thread_phase_elapsed.count());
+
     // TODO: In future look to faster merging strategies
     // Chose first local map as global
     HashMan &merged_map = all_hashes[0];
+    auto merge_phase_start = std::chrono::high_resolution_clock::now();
     for (size_t i = 1; i < all_hashes.size(); i++)
     {
         HashMan &current_hash_map = all_hashes[i];
@@ -565,6 +618,12 @@ int main()
             }
         }
     }
+
+    auto merge_phase_end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> merge_phase_elapsed = merge_phase_end - merge_phase_start;
+    std::chrono::duration<double> since_start_to_merge_finish = merge_phase_end - start_time;
+    std::println(stderr, "Merge phase finished at {:.6f} seconds (duration: {:.6f} seconds)",
+                 since_start_to_merge_finish.count(), merge_phase_elapsed.count());
 
     output_stations(merged_map);
 
