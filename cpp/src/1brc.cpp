@@ -76,9 +76,9 @@ struct WeatherStation
 
 // FNV-1a 32-bit hash function
 // Generate a deterministic integer hash of a byte seq
-static inline uint_fast16_t FNVmanhash(std::string_view key)
+static inline uint32_t FNVmanhash(std::string_view key)
 {
-    uint_fast16_t hash_number = 2166136261u; // FNV Hash number, good for distributions and stuff
+    uint32_t hash_number = 2166136261u; // FNV Hash number, good for distributions and stuff
     size_t key_len = key.length();
     for (size_t i = 0; i < key_len; i++)
     {
@@ -254,26 +254,37 @@ struct MMapFile
 
         size_t chunk_size = size / number_of_chunks;
         const char *chunk_begin = data;
+        const char *file_end = data + size;
 
         std::vector<std::span<const char>> chunks{};
         // -1 in the chunk number since we set the last one manually
-        for (size_t i = 0; i < number_of_chunks - 1; i++)
+        for (size_t i = 0; i < number_of_chunks - 1 && chunk_begin < file_end; i++)
         {
             const char *chunk_end = chunk_begin + chunk_size;
+            if (chunk_end > file_end)
+            {
+                chunk_end = file_end;
+            }
             // Find end char
-            while (chunk_end != data + size && *chunk_end != '\n')
+            while (chunk_end != file_end && *chunk_end != '\n')
             {
                 chunk_end++;
             }
             // Move to start of new line as range is not inclusive
-            chunk_end++;
+            if (chunk_end != file_end)
+            {
+                chunk_end++;
+            }
             chunks.push_back({chunk_begin, chunk_end});
             // Restart chunk start pointer
             chunk_begin = chunk_end;
         }
 
         // Push last chunk
-        chunks.push_back({chunk_begin, data + size});
+        if (chunk_begin < file_end)
+        {
+            chunks.push_back({chunk_begin, file_end});
+        }
         return chunks;
     }
 };
@@ -294,7 +305,11 @@ MMapFile mmap_file()
     }
 
     // * Kernel advise
+#if defined(POSIX_FADV_SEQUENTIAL)
     ::posix_fadvise(fd, 0, 0, POSIX_FADV_SEQUENTIAL);
+#elif defined(F_RDAHEAD)
+    ::fcntl(fd, F_RDAHEAD, 1);
+#endif
 
     // Get file size
     struct stat st{};
@@ -324,7 +339,9 @@ MMapFile mmap_file()
 
     // * More kernel advise
     ::madvise(ptr, size, MADV_SEQUENTIAL);
+#if defined(MADV_HUGEPAGE)
     ::madvise(ptr, size, MADV_HUGEPAGE);
+#endif
 
     // Return mmap struct
     return {size, static_cast<const char *>(ptr)};
@@ -411,7 +428,7 @@ void add_station(std::string_view name, int_fast16_t value, HashMan &weather_sta
     // TODO: move to weather station method
     if (value < station.min)
         station.min = value;
-    else if (value > station.max)
+    if (value > station.max)
         station.max = value;
 
     station.total += value;
@@ -428,11 +445,11 @@ void multi_thread_fill_weather_station_map(HashMan &local_map, std::atomic<size_
     while (true)
     {
         size_t current_chunk_start = atomic_chunk.fetch_add(CHUNK_BATCH_SIZE);
-        if (current_chunk_start >= number_of_chunks)
+        if (current_chunk_start >= chunks.size())
         {
             break;
         }
-        size_t current_chunk_end = std::min(current_chunk_start + CHUNK_BATCH_SIZE, number_of_chunks);
+        size_t current_chunk_end = std::min(current_chunk_start + CHUNK_BATCH_SIZE, chunks.size());
 
         // Variables we will use to store the parsed station name and value, passed by reference to the parsing function
         std::string_view name;

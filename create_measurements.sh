@@ -16,4 +16,13 @@
 #
 
 
-java --class-path target/average-1.0.0-SNAPSHOT.jar dev.morling.onebrc.CreateMeasurements $1
+set -e
+
+JAR=target/average-1.0.0-SNAPSHOT.jar
+
+if [ ! -f "$JAR" ]; then
+  echo "$JAR not found, building..."
+  ./mvnw --quiet -Dquick clean verify
+fi
+
+java --class-path "$JAR" dev.morling.onebrc.CreateMeasurements $1
