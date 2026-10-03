@@ -561,6 +561,7 @@ void one_br_perf()
                  time_elapse.count());
 }
 
+// * SWAR performance gains, under 16bytes so better than simd, simd requires cpu architecture
 static constexpr uint64_t SEMICOLON_PATTERN = 0x3B3B3B3B3B3B3B3BULL;
 static constexpr uint64_t NEWLINE_PATTERN   = 0x0A0A0A0A0A0A0A0AULL;
 
