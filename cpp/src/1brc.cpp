@@ -32,14 +32,34 @@ TODO LIST
 #include <charconv>
 #include <cstdlib>
 #include <cstdio>
-#include <fcntl.h>
-#include <sys/mman.h>
-#include <sys/stat.h>
-#include <unistd.h>
 #include <chrono>
 #include <span>
 #include <cstring>
 #include <thread>
+#include <atomic>
+
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
+#else
+#include <fcntl.h>
+#include <sys/mman.h>
+#include <sys/stat.h>
+#include <unistd.h>
+#endif
+
+static void unmap_file(const char *data, size_t size)
+{
+#ifdef _WIN32
+    (void)size;
+    ::UnmapViewOfFile(data);
+#else
+    ::munmap(const_cast<char *>(data), size);
+#endif
+}
 
 // ! Global Constants
 unsigned int NUMBER_OF_THREADS = std::thread::hardware_concurrency();
@@ -207,7 +227,7 @@ struct MMapFile
     {
         if (data != nullptr)
         {
-            ::munmap(const_cast<char *>(data), size);
+            unmap_file(data, size);
         }
     }
 
@@ -236,7 +256,7 @@ struct MMapFile
 
         if (data != nullptr)
         {
-            ::munmap(const_cast<char *>(data), size);
+            unmap_file(data, size);
         }
         size = other.size;
         data = other.data;
@@ -296,6 +316,41 @@ MMapFile mmap_file()
     // Parse file into map
     const char *path = "../measurements.txt";
 
+#ifdef _WIN32
+    HANDLE file = ::CreateFileA(path, GENERIC_READ, FILE_SHARE_READ, nullptr, OPEN_EXISTING,
+                                FILE_ATTRIBUTE_NORMAL | FILE_FLAG_SEQUENTIAL_SCAN, nullptr);
+    if (file == INVALID_HANDLE_VALUE)
+    {
+        std::println(stderr, "open: cannot open {} (error {})", path, ::GetLastError());
+        return {};
+    }
+
+    LARGE_INTEGER file_size{};
+    if (!::GetFileSizeEx(file, &file_size) || file_size.QuadPart == 0)
+    {
+        ::CloseHandle(file);
+        return {};
+    }
+
+    HANDLE mapping = ::CreateFileMappingA(file, nullptr, PAGE_READONLY, 0, 0, nullptr);
+    ::CloseHandle(file);
+    if (mapping == nullptr)
+    {
+        std::println(stderr, "CreateFileMapping failed (error {})", ::GetLastError());
+        return {};
+    }
+
+    // The view keeps the mapping alive, so both handles can be closed once it exists
+    void *view = ::MapViewOfFile(mapping, FILE_MAP_READ, 0, 0, 0);
+    ::CloseHandle(mapping);
+    if (view == nullptr)
+    {
+        std::println(stderr, "MapViewOfFile failed (error {})", ::GetLastError());
+        return {};
+    }
+
+    return {static_cast<size_t>(file_size.QuadPart), static_cast<const char *>(view)};
+#else
     // Open file
     int fd = ::open(path, O_RDONLY);
     if (fd < 0)
@@ -345,6 +400,7 @@ MMapFile mmap_file()
 
     // Return mmap struct
     return {size, static_cast<const char *>(ptr)};
+#endif
 }
 
 // TODO: branch on length
@@ -521,7 +577,7 @@ void output_stations(const HashMan &map)
     std::println("}}");
 }
 
-void read_every_char_in_given_bytes(const char *mmap_start, uint_fast64_t memory_size, uint thread_id)
+void read_every_char_in_given_bytes(const char *mmap_start, uint_fast64_t memory_size, unsigned int thread_id)
 {
     volatile uint_fast64_t sink = 0;
     const char *ptr = mmap_start + (thread_id * memory_size);
@@ -544,7 +600,7 @@ void one_br_perf()
     std::vector<std::thread> threads;
     uint_fast64_t thread_memory_size = mapped.size / NUMBER_OF_THREADS;
 
-    for (uint i = 0; i < NUMBER_OF_THREADS; i++)
+    for (unsigned int i = 0; i < NUMBER_OF_THREADS; i++)
     {
         threads.emplace_back(
             read_every_char_in_given_bytes, std::ref(mapped.data), thread_memory_size, i);
@@ -570,7 +626,7 @@ static inline uint64_t match_byte(uint64_t word, uint64_t pattern) {
     return (m - 0x0101010101010101ULL) & (~m & 0x8080808080808080ULL);
 }
 
-void read_every_char_in_given_bytes_2(const char *mmap_start, uint_fast64_t memory_size, uint thread_id,
+void read_every_char_in_given_bytes_2(const char *mmap_start, uint_fast64_t memory_size, unsigned int thread_id,
                                     std::atomic<uint64_t> &total_sc, std::atomic<uint64_t> &total_nl)
 {
     uint64_t semicolons = 0, newlines = 0;
@@ -605,7 +661,7 @@ void one_br_perf_2()
     std::vector<std::thread> threads;
     uint_fast64_t thread_memory_size = mapped.size / NUMBER_OF_THREADS;
 
-    for (uint i = 0; i < NUMBER_OF_THREADS; i++)
+    for (unsigned int i = 0; i < NUMBER_OF_THREADS; i++)
     {
         threads.emplace_back(
             read_every_char_in_given_bytes_2, mapped.data, thread_memory_size, i,
@@ -652,7 +708,7 @@ int main()
 
     // Spawn threads with their own maps
     auto thread_phase_start = std::chrono::high_resolution_clock::now();
-    for (uint i = 0; i < NUMBER_OF_THREADS; i++)
+    for (unsigned int i = 0; i < NUMBER_OF_THREADS; i++)
     {
         // Spawn thread in container
         threads.emplace_back(multi_thread_fill_weather_station_map, std::ref(all_hashes[i]), std::ref(atomic_chunk_counter), std::ref(chunks));
